@@ -19,4 +19,10 @@
         android:layout_height="wrap_content"
         android:text="ContentProvider的使用"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_music_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="音乐播放服务" />
 </LinearLayout>

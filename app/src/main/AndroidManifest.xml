@@ -17,10 +17,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".customview.ontouchevent1.OnTouchEventTestActivity" />
-        <activity android:name=".contentprovider.ContentProviderActivity"></activity>
+        <activity android:name=".contentprovider.ContentProviderActivity" />
+
         <provider
-            android:authorities="com.tongfu.mytestapp"
-            android:name=".contentprovider.MyProvider"/>
+            android:name=".contentprovider.MyProvider"
+            android:authorities="com.tongfu.mytestapp" />
+
+        <service
+            android:name=".service.MusicPlayService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".service.MusicPlayActivity"></activity>
     </application>
 
 </manifest>
