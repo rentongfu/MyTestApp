@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 public class MyProvider extends ContentProvider {
+    public final static String Authority = "com.tongfu.mytestapp" ;
     SQLiteDatabase db ;
     @Override
     public boolean onCreate() {
@@ -21,11 +22,6 @@ public class MyProvider extends ContentProvider {
     @Override
     public Cursor query(@NonNull Uri uri, @NonNull String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         Log.i("MyProvider" , "线程id：" +Thread.currentThread().getId() );
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return db.query("userinfo" , projection , selection , selectionArgs  ,null ,null ,sortOrder);
     }
 

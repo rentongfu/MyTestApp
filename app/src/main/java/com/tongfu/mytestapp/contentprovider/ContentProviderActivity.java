@@ -41,9 +41,9 @@ public class ContentProviderActivity extends AppCompatActivity {
         ContentValues cv = new ContentValues();
         cv.put("name" , "rentongfu ");
         cv.put("age" , 25 );
-        getContentResolver().insert(Uri.parse("content://com.tongfu.providertest/userinfo") ,cv );
+        getContentResolver().insert(Uri.parse("content://" + MyProvider.Authority +"/userinfo") ,cv );
 //
-        Cursor cursor = getContentResolver().query(Uri.parse("content://com.tongfu.providertest/userinfo" ) ,  new String[]{ "id" , "name" , "age"} , "id >= ?" , new String[]{"1"} , "name" );
+        Cursor cursor = getContentResolver().query(Uri.parse("content://" + MyProvider.Authority  + "/userinfo" ) ,  new String[]{ "id" , "name" , "age"} , "id >= ?" , new String[]{"1"} , "name" );
         while(cursor.moveToNext()){
             UserInfo userInfo = new UserInfo();
             userInfo.id = cursor.getInt(0);
