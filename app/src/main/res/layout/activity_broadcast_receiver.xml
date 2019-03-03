@@ -4,42 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".service.MusicPlayActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".broadcastreceiver.BroadcastReceiverActivity">
 
     <Button
-        android:id="@+id/btn_bind_service"
+        android:id="@+id/btn_send_boradcast_for_static"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connect" />
+        android:text="发送静态接收器的广播" />
 
     <Button
-        android:id="@+id/btn_start"
+        android:id="@+id/btn_send_boradcast_for_dynamic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start" />
+        android:text="发送动态接收器的广播" />
 
     <Button
-        android:id="@+id/btn_pause"
+        android:id="@+id/btn_send_sticky_broad_for_dynamic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pause" />
+        android:text="向动态接收器发送粘性广播" />
 
     <Button
-        android:id="@+id/btn_resume"
+        android:id="@+id/btn_register_receiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resume" />
+        android:text="注册BroadcastReceiver" />
 
     <Button
-        android:id="@+id/btn_stop"
+        android:id="@+id/btn_unregister_receiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="stop" />
-
-    <Button
-        android:id="@+id/btn_disconnect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Disconnect" />
+        android:text="反注册BoradcastReceiver" />
 </LinearLayout>

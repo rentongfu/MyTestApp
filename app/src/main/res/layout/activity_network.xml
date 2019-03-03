@@ -4,42 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".service.MusicPlayActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".network.NetworkActivity">
 
     <Button
-        android:id="@+id/btn_bind_service"
+        android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connect" />
+        android:text="OkHttp" />
 
     <Button
-        android:id="@+id/btn_start"
+        android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start" />
+        android:text="Retrofit" />
 
     <Button
-        android:id="@+id/btn_pause"
+        android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pause" />
+        android:text="Volley" />
 
     <Button
-        android:id="@+id/btn_resume"
+        android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resume" />
+        android:text="HttpClient" />
 
     <Button
-        android:id="@+id/btn_stop"
+        android:id="@+id/button9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="stop" />
-
-    <Button
-        android:id="@+id/btn_disconnect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Disconnect" />
+        android:text="HttpUrlConnection" />
 </LinearLayout>

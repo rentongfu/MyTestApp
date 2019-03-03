@@ -19,16 +19,19 @@ import butterknife.OnClick;
 public class MusicPlayActivity extends AppCompatActivity {
 
     MusicPlayInterface musicPlayInterface ;
+    boolean isConnected = false ;
     ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             musicPlayInterface = MusicPlayInterface.Stub.asInterface(service);
+            isConnected = true ;
             Toast.makeText(MusicPlayActivity.this , "bindService连接成功" , Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             musicPlayInterface = null ;
+            isConnected = false ;
             Toast.makeText(MusicPlayActivity.this , "bindService断开连接" , Toast.LENGTH_SHORT).show();
         }
     };
@@ -102,9 +105,15 @@ public class MusicPlayActivity extends AppCompatActivity {
         }
     }
 
+    @OnClick(R.id.btn_disconnect)
+    void onBtnDisconnectClicked(){
+        if(isConnected)
+           unbindService(serviceConnection);
+        isConnected = false ;
+    }
+
     @Override
     protected void onDestroy() {
-        unbindService(serviceConnection);
         super.onDestroy();
     }
 }

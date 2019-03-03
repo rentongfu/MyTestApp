@@ -6,23 +6,75 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnCustomViewOnTouchEvent"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义View之onTouchEvent的使用"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btnCustomViewOnTouchEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义View之onTouchEvent的使用"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_content_provider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ContentProvider的使用"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_content_provider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ContentProvider的使用"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_music_service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="音乐播放服务" />
+            <Button
+                android:id="@+id/btn_music_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="音乐播放服务" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity滑动切换" />
+
+            <Button
+                android:id="@+id/btn_broadcast_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="广播接收器测试" />
+
+            <Button
+                android:id="@+id/btn_network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="网络请求" />
+
+            <Button
+                android:id="@+id/btn_mvp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVP最佳实践" />
+
+            <Button
+                android:id="@+id/btn_database"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="数据库" />
+
+            <Button
+                android:id="@+id/btn_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="通知" />
+
+            <Button
+                android:id="@+id/btn_butterknife"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ButterKnife" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
