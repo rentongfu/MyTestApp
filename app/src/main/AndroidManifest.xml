@@ -41,7 +41,10 @@
             android:exported="true" />
 
         <activity android:name=".network.NetworkActivity" />
-        <activity android:name=".database.DatabaseMenuActivity"></activity>
+        <activity android:name=".database.DatabaseMenuActivity" />
+        <activity android:name=".nonification.NotificationActivity" />
+        <activity android:name=".layout.LayoutActivity" />
+        <activity android:name=".menu.MenuActiivty"></activity>
     </application>
 
 </manifest>
