@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".video.VideoPlayEntryActivity" android:configChanges="orientation"></activity>
+        <activity android:name=".video.VideoPlayActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +46,7 @@
         <activity android:name=".database.DatabaseMenuActivity" />
         <activity android:name=".nonification.NotificationActivity" />
         <activity android:name=".layout.LayoutActivity" />
-        <activity android:name=".menu.MenuActiivty"></activity>
+        <activity android:name=".menu.MenuActiivty" />
     </application>
 
 </manifest>

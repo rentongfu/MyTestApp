@@ -1,10 +1,8 @@
 package com.tongfu.mytestapp;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
 import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
@@ -13,6 +11,7 @@ import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
+import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -83,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_butterknife)
     void onBtnButterKnifeClicked(){
 
+    }
+
+    @OnClick(R.id.btn_video)
+    void onBtnVideoClicked(){
+        Intent intent = new Intent(this , VideoPlayEntryActivity.class);
+        startActivity(intent);
     }
 
 
