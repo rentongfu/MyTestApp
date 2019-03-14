@@ -120,21 +120,18 @@ public class SmoothExitActivity extends AppCompatActivity {
         View view = getWindow().getDecorView();
         float currentDeltaX = currentX-downX ;
         Animator a = ObjectAnimator.ofFloat(view , "x" , currentDeltaX , screenWidth );
-        a.setDuration((long) (300 * currentDeltaX / screenWidth));
+        a.setDuration((long) (300 - 300 * currentDeltaX / screenWidth));
         a.start();
         a.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) { }
-
             @Override
             public void onAnimationEnd(Animator animation) {
                 finish();
                 overridePendingTransition(0,0);
             }
-
             @Override
             public void onAnimationCancel(Animator animation) { }
-
             @Override
             public void onAnimationRepeat(Animator animation) { }
         });
