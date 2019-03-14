@@ -34,7 +34,7 @@
                 android:text="音乐播放服务" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_smooth_exit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Activity滑动切换" />

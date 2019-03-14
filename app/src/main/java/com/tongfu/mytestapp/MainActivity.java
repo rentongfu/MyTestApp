@@ -11,6 +11,7 @@ import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
+import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
 import butterknife.ButterKnife;
@@ -90,5 +91,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btn_smooth_exit)
+    void onBtnSmoothExitClicked(){
+        Intent intent = new Intent(this , SmoothExitActivity.class);
+        startActivity(intent);
+    }
 
 }

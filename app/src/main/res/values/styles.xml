@@ -11,5 +11,8 @@
     <style name="defaultButtonStyle" parent="@style/Widget.AppCompat.Button">
         <item name="textAllCaps">false</item>
     </style>
+    <style name="tran" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
 </resources>
