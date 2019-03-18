@@ -111,7 +111,7 @@ public class SmoothExitActivity extends AppCompatActivity {
         View view = getWindow().getDecorView();
         float currentDeltaX = currentX-downX ;
         Animator a = ObjectAnimator.ofFloat(view , "x" , currentDeltaX , 0 );
-        a.setDuration((long) (300 * currentDeltaX / screenWidth));
+        a.setDuration((long) (300 * Math.abs(currentDeltaX) / screenWidth));
         a.start();
     }
 
