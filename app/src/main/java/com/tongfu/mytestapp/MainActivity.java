@@ -2,12 +2,15 @@ package com.tongfu.mytestapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
+import com.tongfu.mytestapp.animation.AnimationEntryActivity;
 import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
 import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
 import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
+import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
@@ -94,6 +97,18 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_smooth_exit)
     void onBtnSmoothExitClicked(){
         Intent intent = new Intent(this , SmoothExitActivity.class);
+        startActivity(intent);
+
+    }
+
+    @OnClick(R.id.btn_image)
+    void onBtnImageClicked(){
+        Intent intent = new Intent(this , ImageLoadEntryActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.btn_anim)
+    void onBtnAnimClicked(){
+        Intent intent = new Intent(this , AnimationEntryActivity.class) ;
         startActivity(intent);
     }
 

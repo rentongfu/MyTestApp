@@ -3,6 +3,7 @@
     package="com.tongfu.mytestapp">
 
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".smoothexit.SmoothExitActivity" android:theme="@style/tran"></activity>
+        <activity android:name=".animation.shareelement.ShareElementActivity2"></activity>
+        <activity android:name=".animation.shareelement.ShareElementActivity1" />
+        <activity android:name=".animation.AnimationEntryActivity" />
+        <activity android:name=".imageload.PicassoActivity" />
+        <activity android:name=".imageload.ImageLoadEntryActivity" />
+        <activity
+            android:name=".smoothexit.SmoothExitActivity"
+            android:theme="@style/tran" />
         <activity
             android:name=".video.VideoPlayEntryActivity"
             android:configChanges="orientation" />

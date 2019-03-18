@@ -87,7 +87,7 @@
                 android:text="菜单" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/btn_anim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="动画" />
@@ -99,7 +99,7 @@
                 android:text="音乐和视频播放" />
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/btn_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="图片加载框架" />
