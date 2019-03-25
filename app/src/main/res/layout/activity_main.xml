@@ -115,6 +115,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="视频播放" />
+
+            <Button
+                android:id="@+id/btn_crash_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="崩溃日志记录" />
         </LinearLayout>
     </ScrollView>
 

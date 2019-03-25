@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.tongfu.mytestapp.animation.AnimationEntryActivity;
 import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
 import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
+import com.tongfu.mytestapp.crashrecord.CrashRecordActivity;
 import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
@@ -109,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_anim)
     void onBtnAnimClicked(){
         Intent intent = new Intent(this , AnimationEntryActivity.class) ;
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_crash_record)
+    void onBtnCrashRecordClicked(){
+        Intent intent = new Intent(this , CrashRecordActivity.class) ;
         startActivity(intent);
     }
 
