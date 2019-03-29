@@ -11,11 +11,15 @@ import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
 import com.tongfu.mytestapp.crashrecord.CrashRecordActivity;
 import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
+import com.tongfu.mytestapp.eventbus.EventBusActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
+import com.tongfu.mytestapp.multiprocess.MultiProcessActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
+import com.tongfu.mytestapp.recyclerview.RecyclerViewActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
+import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
 import butterknife.ButterKnife;
@@ -116,6 +120,30 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_crash_record)
     void onBtnCrashRecordClicked(){
         Intent intent = new Intent(this , CrashRecordActivity.class) ;
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_recycler_view)
+    void onBtnRecyclerViewClicked(){
+        Intent intent = new Intent(this , RecyclerViewActivity.class) ;
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_swipe_refresh)
+    void onBtnSwipeRefreshClicked(){
+        Intent intent = new Intent(this , SwipeRefreshActivity.class) ;
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_multiple_process)
+    void onBtnMultipleProcessClicked(){
+        Intent intent = new Intent(this , MultiProcessActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_event_bus)
+    void onBtnEventBusClicked(){
+        Intent intent = new Intent(this , EventBusActivity.class);
         startActivity(intent);
     }
 

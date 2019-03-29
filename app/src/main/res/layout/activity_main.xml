@@ -121,6 +121,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="崩溃日志记录" />
+
+            <Button
+                android:id="@+id/btn_process_keep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="进程保活" />
+
+            <Button
+                android:id="@+id/btn_manager_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="各种ManagerService的使用" />
+
+            <Button
+                android:id="@+id/btn_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecyclerView的使用"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下拉刷新列表"
+                android:id="@+id/btn_swipe_refresh"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="多进程"
+                android:id="@+id/btn_multiple_process"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EventBus的使用"
+                android:id="@+id/btn_event_bus"/>
+
+
         </LinearLayout>
     </ScrollView>
 
