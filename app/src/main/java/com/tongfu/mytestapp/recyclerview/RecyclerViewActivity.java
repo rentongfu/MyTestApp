@@ -31,6 +31,20 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private void initCom() {
         RecyclerView.Adapter<VH> adapter = new MyRecyclerViewAdapter(this);
         rv.setAdapter(adapter);
+        rv.setRecyclerListener(new RecyclerView.RecyclerListener() {
+            @Override
+            public void onViewRecycled(@NonNull RecyclerView.ViewHolder viewHolder) {
+
+            }
+        });
+
+        rv.setOnFlingListener(new RecyclerView.OnFlingListener() {
+            @Override
+            public boolean onFling(int i, int i1) {
+                return false;
+            }
+        });
+
 //        LinearLayoutManager manager = new LinearLayoutManager(this);
 //        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
 

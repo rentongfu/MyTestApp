@@ -16,15 +16,19 @@ final class MyRecyclerViewAdapter extends RecyclerView.Adapter<VH>{
         mContext = context ;
     }
 
+    int count = 0 ;
     @NonNull
     @Override
-    public VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.layout_recycler_view_item , viewGroup, false);
-        return new VH(v);
+        VH vh = new VH(v);
+        vh.tvName.setText("Pic" + ++count  + ":"  + vh);
+        return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull VH viewHolder, int i) {
+//        viewHolder.tvName.setText("Pic:" +  viewHolder);
     }
 
     @Override
