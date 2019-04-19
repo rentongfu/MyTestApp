@@ -13,6 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".widget.CalendarService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="true"></service>
+
         <receiver android:name=".widget.MyTestWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

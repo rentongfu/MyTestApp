@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        style="@style/calendar_day"
+        android:text="1"
+        android:id="@+id/tv_day"/>
+    <TextView
+        style="@style/calendar_day_lunar"
+        android:text="初一"
+        android:id="@+id/tv_lunar_day"/>
+</LinearLayout>
