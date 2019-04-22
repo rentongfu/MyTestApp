@@ -9,6 +9,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.tongfu.mytestapp",
+                JPUSH_APPKEY : "fb0dffa0ff85cf273ab201eb", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -40,5 +46,6 @@ dependencies {
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.1.1'
     implementation 'com.android.support:support-v4:28.+'
 
-
+    compile 'cn.jiguang.sdk:jpush:3.2.0'  // 此处以JPush 3.2.0 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.2.7'  // 此处以JCore 1.2.7 版本为例。
 }
