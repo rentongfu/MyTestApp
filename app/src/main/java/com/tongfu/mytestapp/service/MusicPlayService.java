@@ -19,33 +19,33 @@ public class MusicPlayService extends Service {
     private IBinder mBinder = new MusicPlayInterface.Stub(){
 
         @Override
-        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
+        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) {
 
         }
 
         @Override
-        public void start() throws RemoteException {
+        public void start() {
             mediaPlayer.start();
         }
 
         @Override
-        public void pause() throws RemoteException {
+        public void pause() {
             mediaPlayer.pause();
         }
 
         @Override
-        public void resume() throws RemoteException {
+        public void resume() {
             mediaPlayer.start();
         }
 
         @Override
-        public void stop() throws RemoteException {
+        public void stop() {
             mediaPlayer.pause();
             mediaPlayer.seekTo(0);
         }
 
         @Override
-        public int getPlayState() throws RemoteException {
+        public int getPlayState() {
             return 0;
         }
     };

@@ -16,6 +16,7 @@ import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
 import com.tongfu.mytestapp.multiprocess.MultiProcessActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
+import com.tongfu.mytestapp.permission.PermissionActivity;
 import com.tongfu.mytestapp.recyclerview.RecyclerViewActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
@@ -144,6 +145,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_event_bus)
     void onBtnEventBusClicked(){
         Intent intent = new Intent(this , EventBusActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_permissoin)
+    void onBtnPermissionClicked(){
+        Intent intent = new Intent(this , PermissionActivity.class);
         startActivity(intent);
     }
 
