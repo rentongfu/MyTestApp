@@ -2,4 +2,12 @@
     <string name="app_name">MyTestApp</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="send_notification">Send Notification</string>
+    <string name="create_notification_channel">Create NotificationChannel</string>
+    <string name="big_text_style">BigTextStyle</string>
+    <string name="big_picture_style">BigPictureStyle</string>
+    <string name="inbox_style">InboxStyle</string>
+    <string name="messaging_style">MessagingStyle</string>
+    <string name="custom_notification">自定义通知栏</string>
+
 </resources>

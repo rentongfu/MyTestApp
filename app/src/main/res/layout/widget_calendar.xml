@@ -60,266 +60,311 @@
             style="@style/calendar_week"
             android:text="六"/>
     </LinearLayout>
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:numColumns="7"
-        android:id="@+id/gv_date"></GridView>
+    <!--
+   <GridView
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:numColumns="7"
+       android:id="@+id/gv_date"></GridView>
+  -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:columnCount="7"
         android:rowCount="6"
-        android:visibility="gone">
+        android:visibility="visible">
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
-        <include layout="@layout/layout_calendar_day"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
-
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"></include>
 
-        <include layout="@layout/layout_calendar_day"
+        <include
+            layout="@layout/layout_calendar_day"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"></include>
+
+        <include
+            layout="@layout/layout_calendar_day"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"></include>
+
+        <include
+            layout="@layout/layout_calendar_day"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -342,11 +387,13 @@
             android:src="@drawable/ic_arrow_left"
             android:adjustViewBounds="false"
             android:layout_gravity="center"/>
+
         <Button
+            android:id="@+id/btn_home"
+            style="@style/calendar_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/calendar_button"
             android:text="Home" />
 
         <ImageButton
