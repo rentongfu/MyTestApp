@@ -73,7 +73,8 @@
         <service
             android:name=".service.MusicPlayService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:process=":music_play_service"/>
 
         <activity android:name=".service.MusicPlayActivity" />
         <activity android:name=".broadcastreceiver.BroadcastReceiverActivity" />
