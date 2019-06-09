@@ -48,5 +48,23 @@
         android:text="@string/custom_notification"
         android:id="@+id/btn_custom_notification"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="进度条通知"
+            android:id="@+id/btn_progress_notification"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="更新进度条"
+            android:id="@+id/btn_update_progress"
+            />
+    </LinearLayout>
 
 </LinearLayout>

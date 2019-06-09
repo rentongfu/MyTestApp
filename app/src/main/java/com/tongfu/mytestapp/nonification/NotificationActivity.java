@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.tongfu.mytestapp.R;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -237,6 +240,64 @@ public class NotificationActivity extends AppCompatActivity {
             builder.setChannelId("a");
         }
         notificationManager.notify(i++, builder.build());
+    }
+
+    private int PROGRESS_NOTIFICATION_ID = 0 ;
+    private int CURRENT_PROGRESS = 0 ;
+    @OnClick(R.id.btn_progress_notification)
+    void onBtnProgressNotificationClicked(){
+        CURRENT_PROGRESS = 0 ;
+        PROGRESS_NOTIFICATION_ID = i++ ;
+
+        NotificationManager notificationManager = (NotificationManager )getSystemService(NOTIFICATION_SERVICE);
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setContentText("当前进度：")
+                .setContentTitle("带进度条的通知")
+                .setSmallIcon(R.drawable.ic_blank)
+                .setProgress(100 , CURRENT_PROGRESS , false );
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ) {
+            builder.setChannelId("a");
+        }
+        notificationManager.notify(PROGRESS_NOTIFICATION_ID, builder.build());
+    }
+
+    @OnClick(R.id.btn_update_progress)
+    void onBtnUpdateProgressClicked(){
+        if(PROGRESS_NOTIFICATION_ID <= 0){
+            Toast.makeText(this , "请先显示进度条通知" , Toast.LENGTH_SHORT).show();
+            return;
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                NotificationManager notificationManager = (NotificationManager )getSystemService(NOTIFICATION_SERVICE);
+                NumberFormat numberFormat = NumberFormat.getPercentInstance();
+                numberFormat.setMinimumFractionDigits(2);
+                while ( true ){
+                    try {
+                        Thread.sleep(100 );
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    CURRENT_PROGRESS++ ;
+                    Notification.Builder builder = new Notification.Builder(NotificationActivity.this);
+                    builder.setContentText("当前进度：" + numberFormat.format(CURRENT_PROGRESS / 100f) )
+                            .setContentTitle("带进度条的通知")
+                            .setSmallIcon(R.drawable.ic_blank)
+                            .setProgress(100 , CURRENT_PROGRESS , false )
+                            .setOnlyAlertOnce(true);
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ) {
+                        builder.setChannelId("a");
+                    }
+                    notificationManager.notify(PROGRESS_NOTIFICATION_ID, builder.build());
+
+                    if(CURRENT_PROGRESS == 100 ){
+                        break;
+                    }
+                }
+            }
+        }).start();
     }
 
 }
