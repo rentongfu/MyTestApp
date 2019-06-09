@@ -16,4 +16,6 @@ interface MusicPlayInterface {
      void resume();
      void stop();
      int getPlayState();
+
+     void setForeground(boolean isForeground);
 }
