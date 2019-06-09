@@ -20,6 +20,7 @@ import com.tongfu.mytestapp.permission.PermissionActivity;
 import com.tongfu.mytestapp.recyclerview.RecyclerViewActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
+import com.tongfu.mytestapp.smoothexit.SmoothExitMenuActivity;
 import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_smooth_exit)
     void onBtnSmoothExitClicked(){
-        Intent intent = new Intent(this , SmoothExitActivity.class);
+        Intent intent = new Intent(this , SmoothExitMenuActivity.class);
         startActivity(intent);
 
     }
