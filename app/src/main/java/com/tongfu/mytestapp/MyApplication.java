@@ -5,11 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import com.squareup.leakcanary.LeakCanary;
-
 import java.util.List;
-
-import cn.jpush.android.api.JPushInterface;
 
 public class MyApplication extends Application {
     @Override
@@ -18,8 +14,8 @@ public class MyApplication extends Application {
 //        LeakCanary.install(this);
         Log.i("MyApplication" , getProcessName(this , android.os.Process.myPid()));
 
-        JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
+//        JPushInterface.setDebugMode(true);
+//        JPushInterface.init(this);
     }
 
     @Override
