@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.tongfu.mytestapp.animation.AnimationEntryActivity;
 import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
@@ -13,6 +14,7 @@ import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.eventbus.EventBusActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
+import com.tongfu.mytestapp.memory.MemoryCheckActivity;
 import com.tongfu.mytestapp.multiprocess.MultiProcessActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
 import com.tongfu.mytestapp.nonification.NotificationActivity;
@@ -46,73 +48,70 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
-    @OnClick(R.id.btnCustomViewOnTouchEvent)
-    void onBtnCustomViewOnTouchEventClicked(){
-        Intent intent = new Intent(this ,OnTouchEventTestActivity.class);
-        startActivity(intent);
-    }
-    @OnClick(R.id.btn_content_provider)
-    void onBtnContentProviderClicked(){
-        Intent intent = new Intent( this , ContentProviderActivity.class) ;
-        startActivity(intent);
-    }
-    @OnClick(R.id.btn_music_service)
-    void onBtnMusicServiceClicked(){
-        Intent intent = new Intent(this , MusicPlayActivity.class) ;
-        startActivity(intent);
-    }
-    @OnClick({R.id.btn_broadcast_receiver})
-    void onBtnBroadcastReceiverClicked(){
-        Intent intent = new Intent(this , BroadcastReceiverActivity.class);
-        startActivity(intent);
+    @OnClick({R.id.btnCustomViewOnTouchEvent,R.id.btn_memory,R.id.btn_content_provider,R.id.btn_music_service,
+            R.id.btn_broadcast_receiver,R.id.btn_network,R.id.btn_database,R.id.btn_notification,R.id.btn_video,
+            R.id.btn_smooth_exit,R.id.btn_image})
+    void onClick(View v){
+        switch (v.getId()){
+            case R.id.btn_memory:{
+                Intent intent = new Intent(this , MemoryCheckActivity.class);
+                startActivity(intent) ;
+                break;
+            }
+            case R.id.btnCustomViewOnTouchEvent:{
+                Intent intent = new Intent(this ,OnTouchEventTestActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_content_provider:{
+                Intent intent = new Intent( this , ContentProviderActivity.class) ;
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_music_service:{
+                Intent intent = new Intent(this , MusicPlayActivity.class) ;
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_broadcast_receiver:{
+                Intent intent = new Intent(this , BroadcastReceiverActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_network:{
+                Intent intent = new Intent(this , NetworkActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_database:{
+                Intent intent = new Intent(this , DatabaseMenuActivity.class) ;
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_notification:{
+                Intent intent = new Intent(this , NotificationActivity.class) ;
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_video:{
+                Intent intent = new Intent(this , VideoPlayEntryActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_smooth_exit:{
+                Intent intent = new Intent(this , SmoothExitMenuActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_image:{
+                Intent intent = new Intent(this , ImageLoadEntryActivity.class);
+                startActivity(intent);
+                break;
+            }
+
+        }
     }
 
-    @OnClick(R.id.btn_network)
-    void onBtnNetworkClicked(){
-        Intent intent = new Intent(this , NetworkActivity.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_mvp)
-    void onBtnMVPClicked(){
-
-    }
-
-    @OnClick(R.id.btn_database)
-    void onBtnDatabaseClicked(){
-        Intent intent = new Intent(this , DatabaseMenuActivity.class) ;
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_notification)
-    void onBtnNotificationClicked(){
-        Intent intent = new Intent(this , NotificationActivity.class) ;
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_butterknife)
-    void onBtnButterKnifeClicked(){
-
-    }
-
-    @OnClick(R.id.btn_video)
-    void onBtnVideoClicked(){
-        Intent intent = new Intent(this , VideoPlayEntryActivity.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_smooth_exit)
-    void onBtnSmoothExitClicked(){
-        Intent intent = new Intent(this , SmoothExitMenuActivity.class);
-        startActivity(intent);
-
-    }
-
-    @OnClick(R.id.btn_image)
-    void onBtnImageClicked(){
-        Intent intent = new Intent(this , ImageLoadEntryActivity.class);
-        startActivity(intent);
-    }
     @OnClick(R.id.btn_anim)
     void onBtnAnimClicked(){
         Intent intent = new Intent(this , AnimationEntryActivity.class) ;

@@ -161,6 +161,12 @@
                 android:text="动态权限申请"
                 android:id="@+id/btn_permissoin"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="内存占用"
+                android:id="@+id/btn_memory"/>
+
         </LinearLayout>
     </ScrollView>
 

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".smoothexit.SwipeBackLayoutActivity"></activity>
+        <activity android:name=".memory.MemoryCheckActivity"></activity>
+        <activity android:name=".smoothexit.SwipeBackLayoutActivity" />
         <activity android:name=".smoothexit.SmoothExitMenuActivity" />
         <activity android:name=".permission.PermissionActivity" />
 
