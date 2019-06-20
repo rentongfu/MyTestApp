@@ -167,6 +167,12 @@
                 android:text="内存占用"
                 android:id="@+id/btn_memory"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="生命周期"
+                android:id="@+id/btn_lifecycle"/>
+
         </LinearLayout>
     </ScrollView>
 

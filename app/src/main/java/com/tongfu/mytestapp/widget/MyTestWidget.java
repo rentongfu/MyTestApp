@@ -32,6 +32,8 @@ public class MyTestWidget extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.btn_home , PendingIntent.getActivity(context , 0 , intent ,PendingIntent.FLAG_ONE_SHOT ));
        // views.setRemoteAdapter(R.id.gv_date , intent);
 
+
+
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 

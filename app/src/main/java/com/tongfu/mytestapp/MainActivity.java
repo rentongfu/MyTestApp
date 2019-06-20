@@ -14,6 +14,7 @@ import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.eventbus.EventBusActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
+import com.tongfu.mytestapp.lifecycle.LifecycleActivity;
 import com.tongfu.mytestapp.memory.MemoryCheckActivity;
 import com.tongfu.mytestapp.multiprocess.MultiProcessActivity;
 import com.tongfu.mytestapp.network.NetworkActivity;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btnCustomViewOnTouchEvent,R.id.btn_memory,R.id.btn_content_provider,R.id.btn_music_service,
             R.id.btn_broadcast_receiver,R.id.btn_network,R.id.btn_database,R.id.btn_notification,R.id.btn_video,
             R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,R.id.btn_recycler_view,
-            R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin})
+            R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -141,6 +142,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_permissoin:{
                 Intent intent = new Intent(this , PermissionActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_lifecycle:{
+                Intent intent = new Intent(this , LifecycleActivity.class);
                 startActivity(intent);
                 break;
             }
