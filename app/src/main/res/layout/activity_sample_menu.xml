@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sampleactivity.SampleMenuActivity"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Basic Activity"
+                android:id="@+id/btn_basic_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bottom Navigation Activity"
+                android:id="@+id/btn_bottom_navigation_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Empty Activity"
+                android:id="@+id/btn_empty_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment / View Model Activity"
+                android:id="@+id/btn_view_model_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fullscreen Activity"
+                android:id="@+id/btn_fullscreen_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Google Admob Activity"
+                android:id="@+id/btn_google_admob_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Map Activity"
+                android:id="@+id/btn_map_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login Activity"
+                android:id="@+id/btn_login_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Master Detail Flow Activity"
+                android:id="@+id/btn_master_detail_flow_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navigation Drawer Activity"
+                android:id="@+id/btn_navigation_drawer_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scroll Activity"
+                android:id="@+id/btn_scroll_activity"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tabbed Activity"
+                android:id="@+id/btn_tabbed_activity"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -173,6 +173,12 @@
                 android:text="生命周期"
                 android:id="@+id/btn_lifecycle"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity示例"
+                android:id="@+id/btn_activity_sample"/>
+
         </LinearLayout>
     </ScrollView>
 

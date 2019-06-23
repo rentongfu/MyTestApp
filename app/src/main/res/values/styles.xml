@@ -8,9 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="buttonStyle">@style/defaultButtonStyle</item>
     </style>
+
     <style name="defaultButtonStyle" parent="@style/Widget.AppCompat.Button">
         <item name="textAllCaps">false</item>
     </style>
+
     <style name="tran" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
     </style>
@@ -23,6 +25,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
     <style name="calendar_day_lunar">
         <item name="android:textSize">9dp</item>
         <item name="android:layout_gravity">center</item>
@@ -30,6 +33,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
     <style name="calendar_button">
         <item name="android:background">#88333333</item>
         <item name="android:textColor">#AAAAAA</item>
@@ -38,9 +42,31 @@
     <style name="calendar_line">
         <item name="android:background">#00000000</item>
     </style>
+
     <style name="calendar_week">
         <item name="android:gravity">center</item>
         <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>
