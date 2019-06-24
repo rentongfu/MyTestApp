@@ -21,6 +21,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".animation.frameanimation.FrameAnimationActivity" />
+        <activity android:name=".animation.propertyanimation.PropertyAnimationActivity" />
+        <activity android:name=".animation.valueanimation.ValueAnimationActivity" />
+        <activity android:name=".animation.tweenanimation.TweenAnimationActivity"></activity>
         <activity android:name=".sampleactivity.SampleMenuActivity"></activity>
         <activity
             android:name=".sampleactivity.SampleTabActivity"
