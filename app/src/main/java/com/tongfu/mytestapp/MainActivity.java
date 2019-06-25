@@ -26,6 +26,8 @@ import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitMenuActivity;
 import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
+import com.tongfu.mytestapp.uiwidget.UIWidgetActivity;
+import com.tongfu.mytestapp.uiwidget.UIWidgetMenuActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
 import butterknife.ButterKnife;
@@ -52,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.btnCustomViewOnTouchEvent,R.id.btn_memory,R.id.btn_content_provider,R.id.btn_music_service,
             R.id.btn_broadcast_receiver,R.id.btn_network,R.id.btn_database,R.id.btn_notification,R.id.btn_video,
-            R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,R.id.btn_recycler_view,
+            R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,
             R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle,
-            R.id.btn_activity_sample})
+            R.id.btn_activity_sample,R.id.btn_ui_widget})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -122,11 +124,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             }
-            case R.id.btn_recycler_view:{
-                Intent intent = new Intent(this , RecyclerViewActivity.class) ;
-                startActivity(intent);
-                break;
-            }
             case R.id.btn_swipe_refresh:{
                 Intent intent = new Intent(this , SwipeRefreshActivity.class) ;
                 startActivity(intent);
@@ -154,6 +151,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_activity_sample:{
                 Intent intent = new Intent(this , SampleMenuActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_ui_widget:{
+                Intent intent = new Intent(this , UIWidgetMenuActivity.class);
                 startActivity(intent);
                 break;
             }
