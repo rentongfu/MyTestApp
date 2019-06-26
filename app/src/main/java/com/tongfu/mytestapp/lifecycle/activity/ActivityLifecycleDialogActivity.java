@@ -1,4 +1,4 @@
-package com.tongfu.mytestapp.lifecycle;
+package com.tongfu.mytestapp.lifecycle.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

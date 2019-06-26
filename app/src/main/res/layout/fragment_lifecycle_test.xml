@@ -4,22 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".lifecycle.LifecycleActivity">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="activity"
-        android:id="@+id/btn_activity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="service"
-        android:id="@+id/btn_service"/>
+    tools:context=".lifecycle.fragment.LifecycleTestFragment">
 
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello World"
+        android:background="@color/colorPrimaryDark"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="fragment"
-        android:id="@+id/btn_fragment"/>
+        android:text="启动Activity"
+        android:id="@+id/btn_start_activity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动Dialog类型的Activity"
+        android:id="@+id/btn_start_dialog_activity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示对话框"
+        android:id="@+id/btn_show_dialog"/>
 
 </LinearLayout>

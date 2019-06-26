@@ -1,4 +1,4 @@
-package com.tongfu.mytestapp.lifecycle;
+package com.tongfu.mytestapp.lifecycle.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import android.widget.EditText;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.TraceRecorder;
-import com.tongfu.mytestapp.network.NetworkActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

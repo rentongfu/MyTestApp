@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lifecycle.fragment.FragmentLifecycleActivity"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/fl_container"></FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="添加Fragment"
+            android:layout_weight="1"
+            android:id="@+id/btn_add_fragment"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="移除Fragment"
+            android:layout_weight="1"
+            android:id="@+id/btn_remove_fragment"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="隐藏Fragment"
+            android:layout_weight="1"
+            android:id="@+id/btn_hide_fragment"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="显示Fragment"
+            android:layout_weight="1"
+            android:id="@+id/btn_show_fragment"/>
+    </LinearLayout>
+</LinearLayout>

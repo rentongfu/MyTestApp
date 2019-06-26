@@ -1,4 +1,4 @@
-package com.tongfu.mytestapp.lifecycle;
+package com.tongfu.mytestapp.lifecycle.fragment;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -17,15 +17,17 @@ import com.tongfu.mytestapp.TraceRecorder;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ActivityLifecycleTestActivity2 extends AppCompatActivity {
+public class FragmentLifecycleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         TraceRecorder.record(this , "onCreate");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_lifecycle_test2);
+        setContentView(R.layout.activity_fragment_lifecycle);
         ButterKnife.bind(this);
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.anim_fragment_show_from_left, R.anim.anim_fragment_exit_to_right).add(R.id.fl_container , new LifecycleTestFragment() , "test").commit();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,15 +43,15 @@ public class ActivityLifecycleTestActivity2 extends AppCompatActivity {
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        TraceRecorder.record(this , "onPrepareOptionMenu");
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         TraceRecorder.record(this , "onCreateContextMenu");
         super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        TraceRecorder.record(this , "onPrepareOptionMenu");
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -102,7 +104,7 @@ public class ActivityLifecycleTestActivity2 extends AppCompatActivity {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        TraceRecorder.record(this , "onConfigureChanged");
+        TraceRecorder.record(this , "onConfigurationChanged");
         super.onConfigurationChanged(newConfig);
     }
 
@@ -124,12 +126,24 @@ public class ActivityLifecycleTestActivity2 extends AppCompatActivity {
         super.onStop();
     }
 
-    @OnClick({R.id.btn_previous_activity})
+    @OnClick({R.id.btn_add_fragment,R.id.btn_remove_fragment,R.id.btn_show_fragment,R.id.btn_hide_fragment})
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.btn_previous_activity:{
-                Intent intent=  new Intent(this , ActivityLifecycleTestActivity.class);
-                startActivity(intent);
+            case R.id.btn_add_fragment:{
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.anim_fragment_show_from_left, R.anim.anim_fragment_exit_to_right).add(R.id.fl_container , new LifecycleTestFragment() , "test").commit();
+                break;
+            }
+            case R.id.btn_remove_fragment:{
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.anim_fragment_show_from_left, R.anim.anim_fragment_exit_to_right).remove(getSupportFragmentManager().findFragmentByTag("test")).commit();
+                break;
+            }
+            case R.id.btn_hide_fragment:{
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.anim_fragment_show_from_left, R.anim.anim_fragment_exit_to_right).hide(getSupportFragmentManager().findFragmentByTag("test")).commit();
+
+                break;
+            }
+            case R.id.btn_show_fragment:{
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.anim_fragment_show_from_left, R.anim.anim_fragment_exit_to_right).show(getSupportFragmentManager().findFragmentByTag("test")).commit();
                 break;
             }
         }
