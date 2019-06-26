@@ -21,11 +21,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".lifecycle.ActivityLifecycleDialogActivity" android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
         <activity android:name=".animation.frameanimation.FrameAnimationActivity" />
         <activity android:name=".animation.propertyanimation.PropertyAnimationActivity" />
         <activity android:name=".animation.valueanimation.ValueAnimationActivity" />
-        <activity android:name=".animation.tweenanimation.TweenAnimationActivity"></activity>
-        <activity android:name=".sampleactivity.SampleMenuActivity"></activity>
+        <activity android:name=".animation.tweenanimation.TweenAnimationActivity" />
+        <activity android:name=".sampleactivity.SampleMenuActivity" />
         <activity
             android:name=".sampleactivity.SampleTabActivity"
             android:label="@string/title_activity_sample_tab"
@@ -65,6 +66,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity
             android:name=".sampleactivity.SampleFullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -81,7 +83,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".lifecycle.ActivityLifecycleTestActivity2" />
         <activity android:name=".lifecycle.LifecycleActivity" />
-        <activity android:name=".lifecycle.ActivityLifecycleTestActivity" />
+        <activity android:name=".lifecycle.ActivityLifecycleTestActivity"
+            android:launchMode="singleTask"/>
         <activity android:name=".memory.MemoryCheckActivity" />
         <activity android:name=".smoothexit.SwipeBackLayoutActivity" />
         <activity android:name=".smoothexit.SmoothExitMenuActivity" />

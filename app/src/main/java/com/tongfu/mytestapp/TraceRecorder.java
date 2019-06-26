@@ -14,4 +14,15 @@ public class TraceRecorder {
         }
 
     }
+
+    public static void record(Object object , String methodName ){
+        if(recordTrace) {
+            Log.d("TraceRecord", object.toString() + "." + methodName + " run on Thread " + Thread.currentThread().getName());
+//            Thread currentThread = Thread.currentThread() ;
+//            StackTraceElement[] stackTraceElements =  currentThread.getStackTrace() ;
+//            StackTraceElement stackTraceElement = stackTraceElements[3] ;
+//            Log.d("TraceRecord", stackTraceElement.toString() );
+        }
+
+    }
 }

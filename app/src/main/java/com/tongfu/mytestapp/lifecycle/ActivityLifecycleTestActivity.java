@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,106 +34,115 @@ public class ActivityLifecycleTestActivity extends AppCompatActivity {
     @BindView(R.id.et_content)
     EditText et_content ;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        TraceRecorder.record(getClass() , "onCreateOptionMenu");
-        getMenuInflater().inflate(R.menu.menu_lifecycle_test , menu );
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        TraceRecorder.record(getClass() , "onOptionsItemSelected");
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        TraceRecorder.record(getClass() , "onPrepareOptionMenu");
-        return super.onPrepareOptionsMenu(menu);
-    }
+    public static int[] memoryData = null ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TraceRecorder.record(getClass() , "onCreate");
+        TraceRecorder.record(this , "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_lifecycle_test);
         ButterKnife.bind(this);
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        TraceRecorder.record(this , "onCreateOptionMenu");
+        getMenuInflater().inflate(R.menu.menu_lifecycle_test , menu );
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        TraceRecorder.record(this , "onOptionsItemSelected");
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        TraceRecorder.record(this , "onCreateContextMenu");
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        TraceRecorder.record(this , "onPrepareOptionMenu");
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     protected void onDestroy() {
-        TraceRecorder.record(getClass() , "onDestroy");
+        TraceRecorder.record(this , "onDestroy");
         super.onDestroy();
     }
 
     @Override
     protected void onStart() {
-        TraceRecorder.record(getClass() , "onStart");
+        TraceRecorder.record(this , "onStart");
         super.onStart();
     }
 
     @Override
     protected void onRestart() {
-        TraceRecorder.record(getClass() , "onRestart");
+        TraceRecorder.record(this , "onRestart");
         super.onRestart();
     }
 
     @Override
     protected void onResume() {
-        TraceRecorder.record(getClass() , "onResume");
+        TraceRecorder.record(this , "onResume");
         super.onResume();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
-        TraceRecorder.record(getClass() , "onNewIntent");
+        TraceRecorder.record(this , "onNewIntent");
         super.onNewIntent(intent);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        TraceRecorder.record(getClass() , "onRestoreInstanceState");
+        TraceRecorder.record(this , "onRestoreInstanceState");
         super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        TraceRecorder.record(getClass() , "onSaveInstanceState");
+        TraceRecorder.record(this , "onSaveInstanceState");
         super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        TraceRecorder.record(getClass() , "onActivityResult");
+        TraceRecorder.record(this , "onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        TraceRecorder.record(getClass() , "onConfigureChanged");
+        TraceRecorder.record(this , "onConfigurationChanged");
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        TraceRecorder.record(getClass() , "onRequestPermissionResult");
+        TraceRecorder.record(this , "onRequestPermissionResult");
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
     protected void onPause() {
-        TraceRecorder.record(getClass() , "onPause");
+        TraceRecorder.record(this , "onPause");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        TraceRecorder.record(getClass() , "onStop");
+        TraceRecorder.record(this , "onStop");
         super.onStop();
     }
 
-    @OnClick({R.id.btn_show_menu,R.id.btn_show_dialog,R.id.btn_request_permission,R.id.btn_start_activity,R.id.btn_delay_task})
+    @OnClick({R.id.btn_show_menu,R.id.btn_show_dialog,R.id.btn_request_permission,R.id.btn_start_activity,R.id.btn_delay_task
+    ,R.id.btn_start_dialog_activity,R.id.btn_start_self,R.id.btn_crash,R.id.btn_apply_memory,R.id.btn_release_memory})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_show_menu:{
@@ -151,8 +161,8 @@ public class ActivityLifecycleTestActivity extends AppCompatActivity {
                 break;
             }
             case R.id.btn_start_activity:{
-                Intent intent = new Intent(this, NetworkActivity.class);
-                startActivityForResult(intent , 1 );
+                Intent intent = new Intent(this, ActivityLifecycleTestActivity2.class);
+                startActivity(intent  );
                 break;
             }
             case R.id.btn_delay_task:{
@@ -167,6 +177,35 @@ public class ActivityLifecycleTestActivity extends AppCompatActivity {
                         }
                     }
                 } , 5000);
+                break;
+            }
+            case R.id.btn_start_dialog_activity:{
+                Intent intent = new Intent(this, ActivityLifecycleDialogActivity.class);
+                startActivity(intent  );
+                break;
+            }
+            case R.id.btn_start_self:{
+                Intent intent = new Intent(this , ActivityLifecycleTestActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_crash:{
+                Log.i("ActivityLifecycle" ,""+1/0);
+                break;
+            }
+            case R.id.btn_apply_memory:{
+                Log.i("Activity" , "触发申请内存" );
+                memoryData = new int[1024*1024*20];
+                for( int i = 0 ; i < memoryData.length ;i++){
+                    memoryData[i] = i ;
+                }
+//                memoryData[10240000] = 20 ;
+                Log.i("Activity" ,""+memoryData.length);
+                break;
+            }
+            case R.id.btn_release_memory:{
+//                Log.i("Activity" ,""+memoryData[10240000]);
+                memoryData = null ;
                 break;
             }
         }
