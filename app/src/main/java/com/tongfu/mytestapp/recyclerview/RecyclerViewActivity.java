@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,9 +50,24 @@ public class RecyclerViewActivity extends AppCompatActivity {
 //        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         GridLayoutManager manager = new GridLayoutManager(this , 2);
-
-
-
         rv.setLayoutManager(manager);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback(){
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView ,RecyclerView.ViewHolder viewHolder ){
+                return makeMovementFlags(ItemTouchHelper.UP | ItemTouchHelper.DOWN|ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT);
+            }
+
+            @Override public boolean onMove(RecyclerView recyclerView ,RecyclerView.ViewHolder viewHolder,RecyclerView.ViewHolder target ) {
+                if(viewHolder!=null && target!=null)
+                    rv.getAdapter().notifyItemMoved(viewHolder.getAdapterPosition() , target.getAdapterPosition());
+                return true ;
+            }
+            @Override public void onSwiped(RecyclerView.ViewHolder viewHolder ,int direction ) {
+                rv.getAdapter().notifyDataSetChanged();
+            }
+
+        });
+        itemTouchHelper.attachToRecyclerView(rv);
     }
 }
