@@ -55,9 +55,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback(){
             @Override
             public int getMovementFlags(RecyclerView recyclerView ,RecyclerView.ViewHolder viewHolder ){
-                return makeMovementFlags(ItemTouchHelper.UP | ItemTouchHelper.DOWN|ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT);
+                return makeMovementFlags(ItemTouchHelper.UP | ItemTouchHelper.DOWN|ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT|ItemTouchHelper.UP|ItemTouchHelper.DOWN);
             }
-
             @Override public boolean onMove(RecyclerView recyclerView ,RecyclerView.ViewHolder viewHolder,RecyclerView.ViewHolder target ) {
                 if(viewHolder!=null && target!=null)
                     rv.getAdapter().notifyItemMoved(viewHolder.getAdapterPosition() , target.getAdapterPosition());
@@ -66,7 +65,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
             @Override public void onSwiped(RecyclerView.ViewHolder viewHolder ,int direction ) {
                 rv.getAdapter().notifyDataSetChanged();
             }
-
         });
         itemTouchHelper.attachToRecyclerView(rv);
     }
