@@ -21,9 +21,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lifecycle.activity.ActivityLifecycleDialogActivity" android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
-        <activity android:name=".lifecycle.fragment.FragmentLifecycleActivity"></activity>
-        <activity android:name=".uiwidget.surfaceview.SurfaceViewActivity"></activity>
+        <activity android:name=".ndk.HelloJniActivity"></activity>
+        <activity android:name=".ndk.NdkMenuActivity" />
+        <activity
+            android:name=".lifecycle.activity.ActivityLifecycleDialogActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity android:name=".lifecycle.fragment.FragmentLifecycleActivity" />
+        <activity android:name=".uiwidget.surfaceview.SurfaceViewActivity" />
         <activity android:name=".uiwidget.UIWidgetMenuActivity" />
         <activity android:name=".uiwidget.UIWidgetActivity" />
         <activity android:name=".animation.frameanimation.FrameAnimationActivity" />

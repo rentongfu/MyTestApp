@@ -178,6 +178,12 @@
                 android:text="Activity UI组件"
                 android:id="@+id/btn_ui_widget"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NDK测试"
+                android:id="@+id/btn_ndk"/>
+
         </LinearLayout>
     </ScrollView>
 
