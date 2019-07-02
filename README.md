@@ -1,9 +1,31 @@
 # MyTestApp
 本项目主要用户存放各种功能demo。
 目前已有的功能demo有：
-  1. 自定义View之onTouchEvent的重写
-  2. ContentProvider的使用
-  3. bindServer的使用及音乐播放
-  4. Activity滑动退出
-  5. 广播接收器的使用
-  6. 使用MediaPlayer进行视频播放
+1. 自定义View之onTouchEvent的重写
+1. ContentProvider的使用
+1. bindServer的使用及音乐播放
+1. Activity滑动退出
+   1. 手动实现的滑动退出效果
+   2. SwipeBackLayout提供的滑动退出效果
+1. 广播接收器的使用
+1. 使用MediaPlayer进行视频播放
+1. 通知栏的使用
+1. 动画的使用
+   1. 共享元素动画
+   1. 帧动画
+   1. 属性动画
+   1. 值动画
+1. 图片加载框架
+   1. Picasso加载和处理图片
+1. 奔溃日志记录
+1. 下拉刷新列表
+1. 多进程
+1. EventBus
+1. 动态权限申请
+1. 内存占用信息收集
+1. 组件声明周期
+   1. Activity生命周期
+   1. fragment生命周期
+1. UI组件的使用
+   1. RecyclerView的使用
+   2. SurfaceView的使用
