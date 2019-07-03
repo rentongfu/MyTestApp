@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ndk.HelloJniActivity"></activity>
+        <activity android:name=".ndk.hellogl2.HelloGL2Activity"></activity>
+        <activity android:name=".ndk.HelloJniActivity" />
         <activity android:name=".ndk.NdkMenuActivity" />
         <activity
             android:name=".lifecycle.activity.ActivityLifecycleDialogActivity"
