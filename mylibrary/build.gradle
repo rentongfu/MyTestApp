@@ -14,7 +14,8 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags ""
+//                cppFlags ""
+                arguments '-DANDROID_STL=c++_static'
             }
         }
         ndk {
@@ -32,6 +33,7 @@ android {
     externalNativeBuild {
         cmake {
             path "src/main/jni/CMakeLists.txt"
+//            arguments '-DANDROID_STL=c++_static'
         }
     }
 
