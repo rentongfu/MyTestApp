@@ -42,8 +42,8 @@ void queryRuntimeInfo(JNIEnv *env, jobject instance) {
     jmethodID versionFunc = env->GetStaticMethodID( g_ctx.jniHelperClz,
             "getBuildVersion", "()Ljava/lang/String;");
     if (!versionFunc) {
-//        LOGE("Failed to retrieve getBuildVersion() methodID @ line %d",
-//             __LINE__);
+        LOGE("Failed to retrieve getBuildVersion() methodID @ line %d",
+             __LINE__);
         return;
     }
     jstring buildVersion = static_cast<jstring>(env->CallStaticObjectMethod(g_ctx.jniHelperClz, versionFunc));
@@ -52,7 +52,7 @@ void queryRuntimeInfo(JNIEnv *env, jobject instance) {
 //        LOGE("Unable to get version string @ line %d", __LINE__);
         return;
     }
-//    LOGI("Android Version - %s", version);
+    LOGI("Android Version - %s", version);
      env->ReleaseStringUTFChars( buildVersion, version);
 
     // we are called from JNI_OnLoad, so got to release LocalRef to avoid leaking
@@ -63,12 +63,12 @@ void queryRuntimeInfo(JNIEnv *env, jobject instance) {
     jmethodID memFunc = env->GetMethodID( g_ctx.jniHelperClz,
                                             "getRuntimeMemorySize", "()J");
     if (!memFunc) {
-//        LOGE("Failed to retrieve getRuntimeMemorySize() methodID @ line %d",
-//             __LINE__);
+        LOGE("Failed to retrieve getRuntimeMemorySize() methodID @ line %d",
+             __LINE__);
         return;
     }
     jlong result = env->CallLongMethod( instance, memFunc);
-//    LOGI("Runtime free memory size: %" PRId64, result);
+    LOGI("Runtime free memory size: %" PRId64, result);
     (void)result;  // silence the compiler warning
 }
 
