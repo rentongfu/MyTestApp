@@ -7,6 +7,11 @@ add_library( # Sets the name of the library.
         SHARED
         testlibrary.cpp)
 
+add_library( # Sets the name of the library.
+        jnicallback
+        SHARED
+        jnicallback.cpp)
+
 
 find_library( # Sets the name of the path variable.
         log-lib
@@ -21,7 +26,7 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
         native-lib
-
+        jnicallback
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib}

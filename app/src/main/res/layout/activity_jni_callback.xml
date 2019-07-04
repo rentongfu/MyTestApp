@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ndk.NdkMenuActivity">
-    <Button
+    tools:context=".ndk.jnicallback.JniCallbackActivity"
+    android:orientation="vertical">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello JNI!"
-        android:id="@+id/btn_hello_jni"/>
-    <Button
+        android:id="@+id/hellojniMsg"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello GL2"
-        android:id="@+id/btn_hello_gl2"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Jni Callback"
-        android:id="@+id/btn_jni_callback"/>
+        android:id="@+id/tickView"/>
 </LinearLayout>
