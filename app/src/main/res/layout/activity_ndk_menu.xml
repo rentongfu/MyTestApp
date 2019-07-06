@@ -20,4 +20,9 @@
         android:layout_height="wrap_content"
         android:text="Jni Callback"
         android:id="@+id/btn_jni_callback"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Native Activity"
+        android:id="@+id/btn_native_activity"/>
 </LinearLayout>
