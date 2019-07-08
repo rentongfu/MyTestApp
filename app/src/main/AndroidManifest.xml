@@ -15,14 +15,17 @@
 
     <application
         android:name=".MyApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".uiwidget.preferenceactivity.PreferenceFragmentTestActivity"></activity>
         <activity android:name=".ndk.nativeactivity.MyNativeActivity">
-            <meta-data android:name="android.app.lib_name"  android:value="mynativeactivity" />
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="mynativeactivity" />
         </activity>
         <activity android:name=".ndk.jnicallback.JniCallbackActivity" />
         <activity android:name=".ndk.hellogl2.HelloGL2Activity" />
