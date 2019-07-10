@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".uiwidget.preferenceactivity.PreferenceFragmentTestActivity"></activity>
+        <activity android:name=".dagger2.Dagger2TestActivity"></activity>
+        <activity android:name=".uiwidget.preferenceactivity.PreferenceFragmentTestActivity" />
         <activity android:name=".ndk.nativeactivity.MyNativeActivity">
             <meta-data
                 android:name="android.app.lib_name"

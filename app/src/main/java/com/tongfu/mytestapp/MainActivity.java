@@ -11,6 +11,7 @@ import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
 import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
 import com.tongfu.mytestapp.crashrecord.CrashRecordActivity;
 import com.tongfu.mytestapp.customview.ontouchevent1.OnTouchEventTestActivity;
+import com.tongfu.mytestapp.dagger2.Dagger2TestActivity;
 import com.tongfu.mytestapp.database.DatabaseMenuActivity;
 import com.tongfu.mytestapp.eventbus.EventBusActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_broadcast_receiver,R.id.btn_network,R.id.btn_database,R.id.btn_notification,R.id.btn_video,
             R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,
             R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle,
-            R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk})
+            R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -162,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_ndk:{
                 Intent intent = new Intent(this , NdkMenuActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_dagger2:{
+                Intent intent = new Intent(this , Dagger2TestActivity.class);
                 startActivity(intent);
                 break;
             }
