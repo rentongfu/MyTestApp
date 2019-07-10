@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+        <item>巴黎</item>
+        <item>伦敦</item>
+        <item>柏林</item>
+        <item>罗马</item>
+        <item>巴塞罗那</item>
+        <item>伊斯坦布尔</item>
+        <item>米兰</item>
+        <item>维也纳</item>
+    </string-array>
+</resources>
