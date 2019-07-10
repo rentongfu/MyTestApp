@@ -1,6 +1,5 @@
 package com.tongfu.mytestapp.dagger2;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +11,15 @@ import android.widget.FrameLayout;
 
 import com.tongfu.mytestapp.R;
 
+import javax.inject.Inject;
+
 public class Dagger2TestFragment extends Fragment {
+
+    @Inject
+    public Dagger2TestFragment(){
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
