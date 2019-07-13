@@ -184,6 +184,12 @@
                 android:text="NDK测试"
                 android:id="@+id/btn_ndk"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dagger2"
+                android:id="@+id/btn_dagger2"/>
+
         </LinearLayout>
     </ScrollView>
 

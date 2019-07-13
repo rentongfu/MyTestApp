@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 设置的类别 -->
+    <PreferenceCategory
+        android:key="key_group1"
+        android:summary="我的位置"
+        android:title="分组1">
+        <CheckBoxPreference
+            android:key="wireless_network"
+            android:summary="CheckBox Summary"
+            android:title="CheckBox"/>
+        <SwitchPreference
+            android:key="key_switch"
+            android:summary="开关"
+            android:title="SwitchPreference"/>
+        <MultiSelectListPreference
+            android:key="key_multi_select"
+            android:summary="多选列表"
+            android:title="MultiSelectListPreference"
+            android:entries="@array/cities"
+            android:entryValues="@array/cities"/>
+        <RingtonePreference
+            android:key="key_ringtone"
+            android:title="RingtonePreference"
+            android:summary="铃声"/>
+        <ListPreference
+            android:key="key_city"
+            android:title="所属城市"
+            android:summary="点击弹出城市列表"
+            android:dialogTitle="请选择城市"
+            android:entries="@array/cities"
+            android:entryValues="@array/cities"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="key_group2"
+        android:summary="个人信息"
+        android:title="分组2">
+        <EditTextPreference
+            android:key="myname"
+            android:title="请输入真实姓名"
+            android:summary="姓名" />
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:title="PreferenceScreen"
+        android:summary="子页面">
+        <MultiSelectListPreference
+            android:key="key_multi_select"
+            android:summary="多选列表"
+            android:title="MultiSelectListPreference"
+            android:entries="@array/cities"
+            android:entryValues="@array/cities"/>
+        <RingtonePreference
+            android:key="key_ringtone"
+            android:title="RingtonePreference"
+            android:summary="铃声"/>
+        <ListPreference
+            android:key="key_city"
+            android:title="所属城市"
+            android:summary="点击弹出城市列表"
+            android:dialogTitle="请选择城市"
+            android:entries="@array/cities"
+            android:entryValues="@array/cities"/>
+    </PreferenceScreen>
+</PreferenceScreen>

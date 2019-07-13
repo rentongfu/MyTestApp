@@ -38,6 +38,12 @@
                 android:layout_height="wrap_content"
                 android:text="Surface View" />
 
+            <Button
+                android:id="@+id/btn_preference_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Preference Fragment" />
+
         </LinearLayout>
     </ScrollView>
 
