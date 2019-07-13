@@ -3,10 +3,10 @@ package com.tongfu.mytestapp.databinding;
 public class Poet {
     private String name ;
     private String birthPlace ;
-    private int age ;
+    private String age ;
     private String dynasty;
 
-    public Poet(String name, String birthPlace, int age, String dynasty) {
+    public Poet(String name, String birthPlace, String age, String dynasty) {
         this.name = name;
         this.birthPlace = birthPlace;
         this.age = age;
@@ -29,11 +29,11 @@ public class Poet {
         this.birthPlace = birthPlace;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
