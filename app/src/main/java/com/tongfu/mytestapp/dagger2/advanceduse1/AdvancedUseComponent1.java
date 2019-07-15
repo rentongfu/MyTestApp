@@ -1,0 +1,1 @@
+package com.tongfu.mytestapp.dagger2.advanceduse1;import dagger.Component;@Component(modules = AdvancedUseModule1.class)public interface AdvancedUseComponent1 {    void inject(AdvancedUseActivity1 activity1);}
