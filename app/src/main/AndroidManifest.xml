@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".network.retrofit.RetrofitActivity"></activity>
+        <activity android:name=".database.dbsqliteopenhelper.DBSqliteOpenHelperActivity"></activity>
+        <activity android:name=".network.retrofit.RetrofitActivity" />
         <activity android:name=".network.okhttp.OKHttpActivity" />
         <activity android:name=".network.volley.VolleyActivity" />
         <activity android:name=".network.httpclient.HttpClientActivity" />
