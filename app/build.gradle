@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    useLibrary 'org.apache.http.legacy'
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.tongfu.mytestapp"
@@ -19,12 +20,12 @@ android {
     }
     buildTypes {
         release {
-            jniDebuggable =false
+            jniDebuggable = false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug{
-            jniDebuggable =true
+        debug {
+            jniDebuggable = true
         }
     }
     buildToolsVersion '28.0.3'
