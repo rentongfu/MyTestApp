@@ -1,9 +1,14 @@
-package com.tongfu.mytestapp.database.ormlite;
+package com.tongfu.mytestapp.database.dbsqliteopenhelper;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +20,6 @@ import android.widget.ListView;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.database.User;
-import com.tongfu.mytestapp.database.greendao.GreenDaoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OrmLiteActivity extends AppCompatActivity {
+public class SQLiteOpenHelperActivity extends AppCompatActivity {
+
     private int selectedItemIndex;
     List<User> userList = new ArrayList<>();
     ArrayAdapter<User> arrayAdapter ;
@@ -32,7 +37,7 @@ public class OrmLiteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dbsqlite_open_helper);
-        setTitle("OrmLite");
+        setTitle("SQLiteOpenHelper");
         ButterKnife.bind(this);
         registerForContextMenu(lvContent);
         arrayAdapter = new ArrayAdapter<>(this , android.R.layout.simple_list_item_1 , userList);
@@ -76,8 +81,8 @@ public class OrmLiteActivity extends AppCompatActivity {
                         user.setName(editText.getText().toString());
                         update(user);
                         List<User> userList = select();
-                        OrmLiteActivity.this.userList.clear();
-                        OrmLiteActivity.this.userList.addAll(userList);
+                        SQLiteOpenHelperActivity.this.userList.clear();
+                        SQLiteOpenHelperActivity.this.userList.addAll(userList);
                         arrayAdapter.notifyDataSetChanged();
                     }
                 });
@@ -113,8 +118,8 @@ public class OrmLiteActivity extends AppCompatActivity {
                         user.setName(editText.getText().toString());
                         add(user);
                         List<User> userList = select();
-                        OrmLiteActivity.this.userList.clear();
-                        OrmLiteActivity.this.userList.addAll(userList);
+                        SQLiteOpenHelperActivity.this.userList.clear();
+                        SQLiteOpenHelperActivity.this.userList.addAll(userList);
                         arrayAdapter.notifyDataSetChanged();
                     }
                 });
@@ -129,18 +134,42 @@ public class OrmLiteActivity extends AppCompatActivity {
             }
         }
     }
+    MySQLiteOpenHelper mySQLiteOpenHelper = new MySQLiteOpenHelper(this);
     private void add(User user) {
-        //TODO
+        SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name" , user.getName() );
+        sqLiteDatabase.insert("my_user" , null , contentValues);
+        sqLiteDatabase.close();
     }
     private void deleteById(int id){
-        //TODO
+        SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getWritableDatabase();
+        sqLiteDatabase.delete("my_user" , "id = ?" , new String[]{Integer.toString(id)});
+        sqLiteDatabase.close();
     }
     private List<User> select(){
+        SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.query("my_user" ,new String[]{"id" , "name"} ,null , null , null , null ,null);
         List<User> userList = new ArrayList<>();
-        //TODO
+        while(cursor.moveToNext()){
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            User user = new User();
+            user.setId(id);
+            user.setName(name);
+            userList.add(user);
+            Log.i("select" , user.toString());
+        }
+        cursor.close();
+        sqLiteDatabase.close();
         return userList;
     }
     private void update(User user){
-        //TODO
+        SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id" , user.getId());
+        contentValues.put("name" , user.getName() );
+        sqLiteDatabase.update("my_user" , contentValues ,"id = ?" , new String[]{Integer.toString(user.getId())});
+        sqLiteDatabase.close();
     }
 }

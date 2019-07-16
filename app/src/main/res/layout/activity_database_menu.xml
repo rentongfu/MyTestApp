@@ -8,29 +8,31 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_green_dao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="GreenDao" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_orm_lite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OrmLite" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_sqlite_db_helper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SqliteDBHelper" />
 
     <Button
+        android:id="@+id/btn_room"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Room"/>
 
     <Button
+        android:id="@+id/btn_sql_brite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SqlBrite"/>
