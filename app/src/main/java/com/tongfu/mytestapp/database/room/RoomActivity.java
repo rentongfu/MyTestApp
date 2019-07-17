@@ -129,19 +129,44 @@ public class RoomActivity extends AppCompatActivity {
             }
         }
     }
+
+    RoomDB roomDB;
+    public void initRoomDB(){
+        if(roomDB == null){
+            roomDB = RoomDB.getInstance(getApplicationContext());
+        }
+    }
+
     private void add(User user) {
-        //TODO
+        initRoomDB();
+        RoomUser roomUser = new RoomUser();
+        roomUser.setName(user.getName());
+        roomDB.getRoomUserDao().insert(roomUser);
     }
     private void deleteById(int id){
-        //TODO
+        RoomUser roomUser = new RoomUser();
+        roomUser.setId(id);
+        initRoomDB();
+        roomDB.getRoomUserDao().deleteById(roomUser);
     }
     private List<User> select(){
         List<User> userList = new ArrayList<>();
-        //TODO
+        initRoomDB();
+        List<RoomUser> roomUserList = roomDB.getRoomUserDao().select();
+        for(RoomUser roomUser : roomUserList){
+            User user = new User();
+            user.setId(roomUser.getId());
+            user.setName(roomUser.getName());
+            userList.add(user);
+        }
         return userList;
     }
     private void update(User user){
-        //TODO
+        RoomUser roomUser = new RoomUser();
+        roomUser.setId(user.getId());
+        roomUser.setName(user.getName());
+        initRoomDB();
+        roomDB.getRoomUserDao().update(roomUser);
     }
 
 

@@ -62,13 +62,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-    // https://mvnrepository.com/artifact/org.greenrobot/eventbus
     implementation group: 'org.greenrobot', name: 'eventbus', version: '3.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
 
@@ -85,12 +82,16 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
-// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.2'
-    // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.0'
 
     implementation 'org.greenrobot:greendao:3.2.2'
+
+    // https://mvnrepository.com/artifact/android.arch.persistence.room/runtime
+    implementation group: 'android.arch.persistence.room', name: 'runtime', version: '1.1.1'
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 }
 
 task myTask {
