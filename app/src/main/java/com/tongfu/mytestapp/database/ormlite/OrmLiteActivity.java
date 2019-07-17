@@ -13,10 +13,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.j256.ormlite.dao.Dao;
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.database.User;
 import com.tongfu.mytestapp.database.greendao.GreenDaoActivity;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,18 +131,60 @@ public class OrmLiteActivity extends AppCompatActivity {
             }
         }
     }
+
+    OrmliteHelper ormliteHelper ;
+    private void initHelper(){
+        if(ormliteHelper ==null){
+            ormliteHelper = new OrmliteHelper(this);
+        }
+    }
     private void add(User user) {
-        //TODO
+        try {
+            initHelper();
+            OrmLiteUser ormLiteUser = new OrmLiteUser();
+            ormLiteUser.setName(user.getName());
+            Dao<OrmLiteUser,Integer> userDao = ormliteHelper.getDao(OrmLiteUser.class);
+            userDao.create(ormLiteUser);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     private void deleteById(int id){
-        //TODO
+        initHelper();
+        try {
+            Dao<OrmLiteUser,Integer> userDao = ormliteHelper.getDao(OrmLiteUser.class);
+            userDao.deleteById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     private List<User> select(){
         List<User> userList = new ArrayList<>();
-        //TODO
+        initHelper();
+        try {
+            Dao<OrmLiteUser,Integer> userDao = ormliteHelper.getDao(OrmLiteUser.class);
+            List<OrmLiteUser> ormLiteUserList = userDao.queryForAll();
+            for(OrmLiteUser ormLiteUser:ormLiteUserList){
+                User user = new User();
+                user.setId(ormLiteUser.getId());
+                user.setName(ormLiteUser.getName());
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return userList;
     }
     private void update(User user){
-        //TODO
+        initHelper();
+        try {
+            Dao<OrmLiteUser,Integer> userDao = ormliteHelper.getDao(OrmLiteUser.class);
+            OrmLiteUser ormLiteUser = new OrmLiteUser();
+            ormLiteUser.setName(user.getName());
+            ormLiteUser.setId(user.getId());
+            userDao.update(ormLiteUser);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
