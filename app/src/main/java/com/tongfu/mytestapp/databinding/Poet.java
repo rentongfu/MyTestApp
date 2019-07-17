@@ -1,14 +1,16 @@
 package com.tongfu.mytestapp.databinding;
 
+import android.databinding.ObservableField;
+
 public class Poet {
     private String name ;
-    private String birthPlace ;
+    private ObservableField<String> birthPlace ;
     private String age ;
     private String dynasty;
 
     public Poet(String name, String birthPlace, String age, String dynasty) {
         this.name = name;
-        this.birthPlace = birthPlace;
+        this.birthPlace = new ObservableField<>(birthPlace);
         this.age = age;
         this.dynasty = dynasty;
     }
@@ -21,11 +23,11 @@ public class Poet {
         this.name = name;
     }
 
-    public String getBirthPlace() {
+    public ObservableField<String> getBirthPlace() {
         return birthPlace;
     }
 
-    public void setBirthPlace(String birthPlace) {
+    public void setBirthPlace(ObservableField<String> birthPlace) {
         this.birthPlace = birthPlace;
     }
 

@@ -34,7 +34,8 @@ public class DataBindingActivity extends AppCompatActivity {
     @OnClick(R.id.btn_change)
     public void onClicked(View view){
         Toast.makeText(this, "poets[0]的名字已设置为rentongfu", Toast.LENGTH_SHORT).show();
-        poets[0].setName("rentongfu");
+        poets[0].setName("rentongfu");//不会刷新对应UIWidget
+        poets[0].getBirthPlace().set("河南辉县");//通过Observable类设置的成员对应的UIWidget可以直接刷新
     }
 
 }
