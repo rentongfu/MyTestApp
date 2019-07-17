@@ -1,4 +1,13 @@
 apply plugin: 'com.android.application'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+    }
+}
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     useLibrary 'org.apache.http.legacy'
@@ -81,7 +90,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.0'
 
-
+    implementation 'org.greenrobot:greendao:3.2.2'
 }
 
 task myTask {

@@ -22,6 +22,8 @@ import com.tongfu.mytestapp.database.User;
 import com.tongfu.mytestapp.database.dbsqliteopenhelper.MySQLiteOpenHelper;
 import com.tongfu.mytestapp.database.dbsqliteopenhelper.SQLiteOpenHelperActivity;
 
+import org.greenrobot.greendao.database.Database;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,18 +137,48 @@ public class GreenDaoActivity extends AppCompatActivity {
             }
         }
     }
+    DaoSession daoSession ;
+
+    private void initGreenDao(){
+        if(daoSession == null){
+            DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(getApplicationContext(), "database_greendao");
+            Database db = devOpenHelper.getWritableDb() ;
+            DaoMaster daoMaster = new DaoMaster(db);
+            daoSession = daoMaster.newSession() ;
+        }
+    }
+
     private void add(User user) {
-        //TODO
+        initGreenDao();
+        GreenDaoUser greenDaoUser = new GreenDaoUser();
+        greenDaoUser.setName(user.getName());
+        daoSession.getGreenDaoUserDao().insert(greenDaoUser);
+        daoSession.clear();
     }
     private void deleteById(int id){
-        //TODO
+        initGreenDao();
+        daoSession.getGreenDaoUserDao().deleteByKey(new Long(id));
+        daoSession.clear();
     }
     private List<User> select(){
         List<User> userList = new ArrayList<>();
-        //TODO
+        initGreenDao();
+        List<GreenDaoUser> greenDaoUserList = daoSession.getGreenDaoUserDao().loadAll();
+        for(GreenDaoUser greenDaoUser:greenDaoUserList){
+            User user = new User();
+            user.setId(greenDaoUser.getId().intValue());
+            user.setName(greenDaoUser.getName());
+            userList.add(user);
+        }
+        daoSession.clear();
         return userList;
     }
     private void update(User user){
-        //TODO
+        GreenDaoUser greenDaoUser = new GreenDaoUser();
+        greenDaoUser.setId((long)user.getId());
+        greenDaoUser.setName(user.getName());
+        initGreenDao();
+        daoSession.getGreenDaoUserDao().update(greenDaoUser);
+        daoSession.clear();
     }
 }
