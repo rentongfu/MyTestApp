@@ -27,6 +27,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/change_class_loader"
         android:text="修改类加载器"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从外部加载类"
+        android:id="@+id/btn_load_external_class"/>
     <EditText
         android:id="@+id/et_console"
         android:layout_width="match_parent"
