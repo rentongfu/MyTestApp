@@ -196,6 +196,11 @@
                 android:text="Android DataBinding"
                 android:id="@+id/btn_data_binding"/>
 
+            <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="热更新"
+                android:id="@+id/btn_hot_update"/>
+
         </LinearLayout>
     </ScrollView>
 
