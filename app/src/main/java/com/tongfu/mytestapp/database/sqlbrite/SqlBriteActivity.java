@@ -1,6 +1,12 @@
 package com.tongfu.mytestapp.database.sqlbrite;
 
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import android.arch.persistence.db.SupportSQLiteStatement;
+import android.arch.persistence.db.framework.FrameworkSQLiteOpenHelperFactory;
+import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.squareup.sqlbrite3.BriteDatabase;
+import com.squareup.sqlbrite3.SqlBrite;
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.database.User;
 import com.tongfu.mytestapp.database.room.RoomActivity;
@@ -23,6 +31,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class SqlBriteActivity extends AppCompatActivity {
 
@@ -38,11 +52,11 @@ public class SqlBriteActivity extends AppCompatActivity {
         registerForContextMenu(lvContent);
         arrayAdapter = new ArrayAdapter<>(this , android.R.layout.simple_list_item_1 , userList);
         lvContent.setAdapter(arrayAdapter);
-        List<User> userList = select();
-        this.userList.clear();
-        this.userList.addAll(userList);
         arrayAdapter.notifyDataSetChanged();
+        compositeDisposable = new CompositeDisposable();
+        subscribe();
     }
+    CompositeDisposable compositeDisposable = null ;
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -59,10 +73,6 @@ public class SqlBriteActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.item_delete:{
                 deleteById(userList.get(selectedItemIndex).getId());
-                List<User> userList = select();
-                this.userList.clear();
-                this.userList.addAll(userList);
-                arrayAdapter.notifyDataSetChanged();
                 break;
             }
             case R.id.item_update:{
@@ -76,10 +86,6 @@ public class SqlBriteActivity extends AppCompatActivity {
                         User user = userList.get(selectedItemIndex) ;
                         user.setName(editText.getText().toString());
                         update(user);
-                        List<User> userList = select();
-                        SqlBriteActivity.this.userList.clear();
-                        SqlBriteActivity.this.userList.addAll(userList);
-                        arrayAdapter.notifyDataSetChanged();
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -113,10 +119,6 @@ public class SqlBriteActivity extends AppCompatActivity {
                         User user = new User();
                         user.setName(editText.getText().toString());
                         add(user);
-                        List<User> userList = select();
-                        SqlBriteActivity.this.userList.clear();
-                        SqlBriteActivity.this.userList.addAll(userList);
-                        arrayAdapter.notifyDataSetChanged();
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -130,19 +132,60 @@ public class SqlBriteActivity extends AppCompatActivity {
             }
         }
     }
-    private void add(User user) {
-        //TODO
-    }
-    private void deleteById(int id){
-        //TODO
-    }
-    private List<User> select(){
-        List<User> userList = new ArrayList<>();
-        //TODO
-        return userList;
-    }
-    private void update(User user){
-        //TODO
+    BriteDatabase briteDatabase = null ;
+    private void init(){
+        if(briteDatabase == null){
+            SqlBrite sqlBrite = new SqlBrite.Builder().build();
+            SupportSQLiteOpenHelper.Factory factory = new FrameworkSQLiteOpenHelperFactory();
+            SupportSQLiteOpenHelper.Configuration configuration = SupportSQLiteOpenHelper.Configuration.builder(this)
+                    .name("databasesqlbrite")
+                    .callback(new MyCallback(1))
+                    .build();
+            briteDatabase = sqlBrite.wrapDatabaseHelper(factory.create(configuration) , Schedulers.io());
+        }
+
     }
 
+    private void add(User user) {
+        init();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name" , user.getName());
+        briteDatabase.insert("my_user" , SQLiteDatabase.CONFLICT_IGNORE, contentValues);
+    }
+    private void deleteById(int id){
+        init();
+        briteDatabase.delete("my_user" , "id = ?" , Integer.toString(id));
+    }
+    private void subscribe(){
+        init();
+        Observable<SqlBrite.Query> queryObservable = briteDatabase.createQuery("my_user" , "select id ,name from my_user");
+        Disposable disposable = queryObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe((SqlBrite.Query query) -> {
+                Cursor cursor = query.run();
+                List<User> userList = new ArrayList<>();
+                while(cursor.moveToNext()){
+                    int id = cursor.getInt(0);
+                    String name = cursor.getString(1);
+                    User user = new User();
+                    user.setId(id);
+                    user.setName(name);
+                    userList.add(user);
+                }
+                SqlBriteActivity.this.userList.clear();
+                SqlBriteActivity.this.userList.addAll(userList);
+                SqlBriteActivity.this.arrayAdapter.notifyDataSetChanged();
+        });
+        compositeDisposable.add(disposable);
+    }
+    private void update(User user){
+        init();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name" , user.getName());
+        briteDatabase.update("my_user" , SQLiteDatabase.CONFLICT_IGNORE ,contentValues ,"id = ? " ,new String[]{Integer.toString(user.getId())} );
+    }
+
+    @Override
+    protected void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
 }

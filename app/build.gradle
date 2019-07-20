@@ -96,7 +96,13 @@ dependencies {
     implementation group: 'com.j256.ormlite', name: 'ormlite-core', version: '5.1'
 
     // https://mvnrepository.com/artifact/com.android.support/multidex
-    compile group: 'com.android.support', name: 'multidex', version: '1.0.3'
+    implementation group: 'com.android.support', name: 'multidex', version: '1.0.3'
+
+    // https://mvnrepository.com/artifact/com.squareup.sqlbrite3/sqlbrite
+    implementation group: 'com.squareup.sqlbrite3', name: 'sqlbrite', version: '3.2.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+
 
 }
 
