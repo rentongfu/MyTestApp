@@ -186,6 +186,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <DatePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyle"

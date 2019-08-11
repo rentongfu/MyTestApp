@@ -201,6 +201,11 @@
                 android:text="热更新"
                 android:id="@+id/btn_hot_update"/>
 
+            <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Hook"
+                android:id="@+id/btn_hook"/>
+
         </LinearLayout>
     </ScrollView>
 
