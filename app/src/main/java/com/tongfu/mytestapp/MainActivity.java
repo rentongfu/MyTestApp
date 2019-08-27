@@ -30,6 +30,7 @@ import com.tongfu.mytestapp.sampleactivity.SampleMenuActivity;
 import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitMenuActivity;
+import com.tongfu.mytestapp.statusbar.StatusBarActivity;
 import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
 import com.tongfu.mytestapp.uiwidget.UIWidgetActivity;
 import com.tongfu.mytestapp.uiwidget.UIWidgetMenuActivity;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,
             R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle,
             R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2,R.id.btn_data_binding,
-            R.id.btn_hot_update , R.id.btn_hook})
+            R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -187,6 +188,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_hook:{
                 Intent intent = new Intent(this , HookMenuActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_status_bar:{
+                Intent intent = new Intent(this , StatusBarActivity.class);
                 startActivity(intent);
                 break;
             }
