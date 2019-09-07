@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".statusbar.StatusBarActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fullscreen"
+                android:id="@+id/btn_flag_fullscreen"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fullscreen"
+                android:id="@+id/btn_cancel_flag_fullscreen"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Layout Fullscreen"
+                android:id="@+id/btn_flag_layout_fullscreen"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Immersive"
+                android:id="@+id/btn_flag_immersive"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Immersive Sticky"
+                android:id="@+id/btn_flag_immersive_sticky"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Low Profile"
+                android:id="@+id/btn_flag_low_profile"/>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Layout Stable"
+                android:id="@+id/btn_flag_layout_stable"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hide Navigation"
+                android:id="@+id/btn_flag_hide_navigation"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Layout Hide Navigation"
+                android:id="@+id/btn_flag_layout_hide_navigation"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="设置状态栏字体颜色1"
+                android:id="@+id/btn_set_status_bar_font_color1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="设置状态栏字体颜色2"
+                android:id="@+id/btn_set_status_bar_font_color2"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="将状态栏设置为透明"
+                android:id="@+id/btn_set_transparent_status_bar"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="将状态栏取消透明效果"
+                android:id="@+id/btn_cancel_transparent_status_bar"/>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="隐藏ActionBar"
+                android:id="@+id/btn_hide_action_bar" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示ActionBar"
+                android:id="@+id/btn_show_action_bar" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
