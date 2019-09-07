@@ -1,10 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#88222222"
     android:orientation="vertical"
     android:padding="@dimen/widget_margin">
     <TextView
+        android:id="@+id/tv_month"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2019-04"
@@ -76,299 +78,761 @@
         android:rowCount="6"
         android:visibility="visible">
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date01"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day01"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day01"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date02"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day02"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day02"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date03"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day03"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day03"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date04"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day04"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day04"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date05"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day05"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day05"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date06"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day06"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day06"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date07"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day07"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day07"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date08"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day08"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day08"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date09"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day09"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day09"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date10"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day10"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day10"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date11"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day11"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day11"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date12"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day12"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day12"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date13"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day13"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day13"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date14"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day14"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day14"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date15"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day15"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day15"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date16"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day16"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day16"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date17"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day17"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day17"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date18"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day18"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day18"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date19"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day19"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day19"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date20"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day20"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day20"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date21"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day21"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day21"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date22"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day22"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day22"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date23"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day23"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day23"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date24"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day24"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day24"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date25"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day25"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day25"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date26"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day26"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day26"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date27"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day27"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day27"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date28"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day28"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day28"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date29"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day29"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day29"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date30"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day30"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day30"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date31"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day31"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day31"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date32"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day32"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day32"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date33"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day33"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day33"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date34"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day34"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day34"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date35"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day35"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day35"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date36"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day36"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day36"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date37"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day37"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day37"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date38"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day38"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day38"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date39"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day39"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day39"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date40"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day40"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day40"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date41"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day41"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day41"/>
+        </LinearLayout>
 
-        <include
-            layout="@layout/layout_calendar_day"
+        <LinearLayout
+            android:id="@+id/ll_date42"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"></include>
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                style="@style/calendar_day"
+                android:text="1"
+                android:id="@+id/tv_day42"/>
+            <TextView
+                style="@style/calendar_day_lunar"
+                android:text="初一"
+                android:id="@+id/tv_lunar_day42"/>
+        </LinearLayout>
 
 
     </GridLayout>
@@ -380,10 +844,12 @@
         android:background="#333333">
 
         <ImageButton
+            android:id="@+id/btn_left_arrow"
             style="@style/calendar_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            app:srcCompat="@drawable/ic_arrow_left"
             android:src="@drawable/ic_arrow_left"
             android:adjustViewBounds="false"
             android:layout_gravity="center"/>
@@ -397,10 +863,12 @@
             android:text="Home" />
 
         <ImageButton
+            android:id="@+id/btn_right_arrow"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             style="@style/calendar_button"
+            app:srcCompat="@drawable/ic_arrow_right"
             android:src="@drawable/ic_arrow_right"
             android:adjustViewBounds="false"
             android:layout_gravity="center"/>
