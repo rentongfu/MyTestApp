@@ -19,6 +19,7 @@ import com.tongfu.mytestapp.hook.HookMenuActivity;
 import com.tongfu.mytestapp.hotupdate.HotUpdateMenuActivity;
 import com.tongfu.mytestapp.imageload.ImageLoadEntryActivity;
 import com.tongfu.mytestapp.lifecycle.LifecycleActivity;
+import com.tongfu.mytestapp.managerservice.ManagerServiceActivity;
 import com.tongfu.mytestapp.memory.MemoryCheckActivity;
 import com.tongfu.mytestapp.multiprocess.MultiProcessActivity;
 import com.tongfu.mytestapp.ndk.NdkMenuActivity;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_smooth_exit,R.id.btn_image,R.id.btn_anim,R.id.btn_crash_record,
             R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle,
             R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2,R.id.btn_data_binding,
-            R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar})
+            R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar , R.id.btn_manager_service})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -193,6 +194,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_status_bar:{
                 Intent intent = new Intent(this , StatusBarActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_manager_service:{
+                Intent intent = new Intent(this , ManagerServiceActivity.class);
                 startActivity(intent);
                 break;
             }

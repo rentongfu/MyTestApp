@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".managerservice.LocationManagerActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_permission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请求权限" />
+
+            <Button
+                android:id="@+id/btn_start_gps_locate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开始GPS定位" />
+
+            <Button
+                android:id="@+id/btn_get_gps_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="获取GPS位置" />
+
+            <Button
+                android:id="@+id/btn_stop_gps_locate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="停止GPS定位" />
+
+            <Button
+                android:id="@+id/btn_gps_available"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="检查GPS是否可用" />
+
+            <Button
+                android:id="@+id/btn_start_gnss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开始监听信号信息"/>
+
+            <Button
+                android:id="@+id/btn_stop_gnss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="停止监听信号信息" />
+
+            <Button
+                android:id="@+id/btn_show_gnss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示信号信息" />
+
+            <Button
+                android:id="@+id/btn_start_network_locate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开始网络定位" />
+
+            <Button
+                android:id="@+id/btn_get_network_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="获取网络位置" />
+
+            <Button
+                android:id="@+id/btn_stop_network_locate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="停止网络定位" />
+
+            <Button
+                android:id="@+id/btn_network_available"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="检查网络定位是否可用" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
