@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="请输入图片地址"
+        android:text="https://raw.githubusercontent.com/rentongfu/MyResource01/master/knight.jpg"
         android:inputType="textPersonName" />
 
     <Button

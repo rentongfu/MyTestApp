@@ -2,6 +2,7 @@ package com.tongfu.mytestapp.network.retrofit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitActivity extends AppCompatActivity {
     @BindView(R.id.et_content)
@@ -30,7 +32,7 @@ public class RetrofitActivity extends AppCompatActivity {
         setTitle("Retrofit");
     }
 
-    @OnClick({R.id.btn_get, R.id.btn_post})
+    @OnClick({R.id.btn_get, R.id.btn_post , R.id.btn_weather})
     public void onClicked(View view){
         switch (view.getId()){
             case R.id.btn_get:{
@@ -41,11 +43,15 @@ public class RetrofitActivity extends AppCompatActivity {
                 doPost();
                 break;
             }
+            case R.id.btn_weather:{
+                getWeather();
+                break;
+            }
         }
     }
 
     private void doPost() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://blog.rentongfu.com/").build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://blog.rentongfu.com/").addConverterFactory(GsonConverterFactory.create()).build();
         RetrofitApi retrofitApi = retrofit.create(RetrofitApi.class);
         retrofitApi.postHomePage(2 , "123" , "345").enqueue(new Callback<ResponseBody>() {
             @Override
@@ -84,5 +90,28 @@ public class RetrofitActivity extends AppCompatActivity {
                 Toast.makeText(RetrofitActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void getWeather(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://blog.rentongfu.com/").addConverterFactory(GsonConverterFactory.create()).build();
+        RetrofitApi retrofitApi = retrofit.create(RetrofitApi.class);
+        retrofitApi.getRetrofitBean("101010100").enqueue(new Callback<MyResponseData>() {
+            @Override
+            public void onResponse(Call<MyResponseData> call, Response<MyResponseData> response) {
+                MyResponseData myResponseData = response.body();
+                Log.i("Retrofit" , response.message());
+                etContent.setText("城市：" + myResponseData.getWeatherinfo().getCity() + "，城市编号：" + myResponseData.getWeatherinfo().getCityid() + "，天气：" + myResponseData.getWeatherinfo().getWeather());
+            }
+
+            @Override
+            public void onFailure(Call<MyResponseData> call, Throwable t) {
+                Toast.makeText(RetrofitActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getWeather2(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://blog.rentongfu.com/").addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(new MyCallAdapter.Fcatory()).build();
     }
 }
