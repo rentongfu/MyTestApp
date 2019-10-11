@@ -6,12 +6,13 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Include required permissions for Google Mobile Ads to run. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
     <application
@@ -22,7 +23,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".managerservice.LocationManagerActivity"></activity>
+        <activity android:name=".topactivity.BottomActivity"></activity>
+        <activity
+            android:name=".topactivity.TopActivity"
+            android:taskAffinity="sdfs.fsdf" />
+        <activity android:name=".topactivity.TopMenuActivity" />
+        <activity android:name=".managerservice.LocationManagerActivity" />
         <activity android:name=".statusbar.StatusBarActivity" />
         <activity android:name=".hook.HookMenuActivity" />
         <activity android:name=".hotupdate.classloader.HotUpdateClassLoaderActivity" />

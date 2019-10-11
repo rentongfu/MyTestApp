@@ -211,6 +211,12 @@
                 android:text="状态栏"
                 android:id="@+id/btn_status_bar"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity启动模式测试"
+                android:id="@+id/btn_activity_start_mode"/>
+
         </LinearLayout>
     </ScrollView>
 
