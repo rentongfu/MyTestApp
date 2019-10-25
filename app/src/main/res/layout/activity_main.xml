@@ -214,8 +214,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Activity启动模式测试"
-                android:id="@+id/btn_activity_start_mode"/>
+                android:text="置顶Activity的实现"
+                android:id="@+id/btn_top_activity"/>
 
         </LinearLayout>
     </ScrollView>

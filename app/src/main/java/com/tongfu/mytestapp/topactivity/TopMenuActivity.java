@@ -2,9 +2,9 @@ package com.tongfu.mytestapp.topactivity;
 
 import android.app.ActivityManager;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
@@ -29,16 +29,23 @@ public class TopMenuActivity extends AppCompatActivity {
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_flag_new_task:{
-                Intent intent = new Intent(this , TopActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Intent intent = new Intent(TopMenuActivity.this , BottomActivity.class);
                         startActivity(intent);
                     }
-                } , 3000 );
+                } , 4000 );
+
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(TopMenuActivity.this , TopActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                } , 2000 );
                 break;
             }
             case R.id.btn_show_stack_info:{
