@@ -217,6 +217,12 @@
                 android:text="置顶Activity的实现"
                 android:id="@+id/btn_top_activity"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="同时显示多个Dialog"
+                android:id="@+id/btn_multi_dialog"/>
+
         </LinearLayout>
     </ScrollView>
 
