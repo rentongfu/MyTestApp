@@ -31,6 +31,7 @@ import com.tongfu.mytestapp.service.MusicPlayActivity;
 import com.tongfu.mytestapp.smoothexit.SmoothExitMenuActivity;
 import com.tongfu.mytestapp.statusbar.StatusBarActivity;
 import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
+import com.tongfu.mytestapp.systeminfo.SystemInfoActivity;
 import com.tongfu.mytestapp.topactivity.TopMenuActivity;
 import com.tongfu.mytestapp.uiwidget.UIWidgetMenuActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_swipe_refresh,R.id.btn_multiple_process,R.id.btn_event_bus,R.id.btn_permissoin,R.id.btn_lifecycle,
             R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2,R.id.btn_data_binding,
             R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar , R.id.btn_manager_service ,
-            R.id.btn_top_activity , R.id.btn_multi_dialog})
+            R.id.btn_top_activity , R.id.btn_multi_dialog , R.id.btn_system_info})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -208,6 +209,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_multi_dialog:{
                 Intent intent = new Intent(this , MultiDialogActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_system_info:{
+                Intent intent = new Intent(this , SystemInfoActivity.class);
                 startActivity(intent);
                 break;
             }

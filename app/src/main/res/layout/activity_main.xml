@@ -223,6 +223,12 @@
                 android:text="同时显示多个Dialog"
                 android:id="@+id/btn_multi_dialog"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="获取系统信息"
+                android:id="@+id/btn_system_info"/>
+
         </LinearLayout>
     </ScrollView>
 
