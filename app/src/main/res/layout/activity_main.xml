@@ -229,6 +229,12 @@
                 android:text="获取系统信息"
                 android:id="@+id/btn_system_info"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shell命令行工具"
+                android:id="@+id/btn_console"/>
+
         </LinearLayout>
     </ScrollView>
 
