@@ -1,9 +1,10 @@
 package com.tongfu.mytestapp.network;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.network.httpclient.HttpClientActivity;
@@ -11,8 +12,6 @@ import com.tongfu.mytestapp.network.httpurlconnection.HttpUrlConnectionActivity;
 import com.tongfu.mytestapp.network.okhttp.OKHttpActivity;
 import com.tongfu.mytestapp.network.retrofit.RetrofitActivity;
 import com.tongfu.mytestapp.network.volley.VolleyActivity;
-
-import java.net.HttpURLConnection;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

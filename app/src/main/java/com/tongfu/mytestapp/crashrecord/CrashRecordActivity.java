@@ -1,8 +1,9 @@
 package com.tongfu.mytestapp.crashrecord;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 
@@ -12,8 +13,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

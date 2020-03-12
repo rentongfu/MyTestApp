@@ -1,10 +1,9 @@
 package com.tongfu.mytestapp.ndk.hellogl2;
 
 import android.opengl.GLSurfaceView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.tongfu.mytestapp.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HelloGL2Activity extends AppCompatActivity {
 

@@ -7,21 +7,13 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
 import android.os.RemoteException;
-import android.os.Trace;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.TraceRecorder;
 
-import java.io.FileDescriptor;
 import java.io.IOException;
 
 public class MusicPlayService extends Service {

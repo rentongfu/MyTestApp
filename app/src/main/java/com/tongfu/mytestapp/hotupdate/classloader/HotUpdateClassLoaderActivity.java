@@ -1,9 +1,10 @@
 package com.tongfu.mytestapp.hotupdate.classloader;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.TraceRecorder;
@@ -14,7 +15,6 @@ import org.apache.commons.io.IOUtils;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dalvik.system.PathClassLoader;
 
 public class HotUpdateClassLoaderActivity extends AppCompatActivity {
 

@@ -1,7 +1,8 @@
 package com.tongfu.mytestapp.sampleactivity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.sampleactivity.ui.sampleviewmodel.SampleViewModelFragment;

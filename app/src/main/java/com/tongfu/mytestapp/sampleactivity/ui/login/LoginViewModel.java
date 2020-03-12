@@ -1,9 +1,10 @@
 package com.tongfu.mytestapp.sampleactivity.ui.login;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.util.Patterns;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.sampleactivity.data.LoginRepository;

@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".shell.ShellActivity"></activity>
+        <activity android:name=".bigimage.BigImageActivity"></activity>
+        <activity android:name=".chart.MPAndroidChartActivity" />
+        <activity android:name=".shell.ShellActivity" />
         <activity android:name=".systeminfo.SystemInfoActivity" />
         <activity android:name=".multidialog.MultiDialogActivity" />
         <activity android:name=".topactivity.BottomActivity" />

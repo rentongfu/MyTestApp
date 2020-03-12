@@ -9,15 +9,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tongfu.mytestapp.R;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import butterknife.ButterKnife;

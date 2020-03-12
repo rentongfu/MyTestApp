@@ -1,9 +1,10 @@
 package com.tongfu.mytestapp.dagger2.advanceduse1;
 
 import android.app.ActivityManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 
