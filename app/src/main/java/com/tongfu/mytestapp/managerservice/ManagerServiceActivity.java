@@ -1,11 +1,11 @@
 package com.tongfu.mytestapp.managerservice;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.j256.ormlite.stmt.query.In;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tongfu.mytestapp.R;
 
 import butterknife.ButterKnife;

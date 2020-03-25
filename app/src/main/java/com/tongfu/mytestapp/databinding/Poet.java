@@ -1,6 +1,6 @@
 package com.tongfu.mytestapp.databinding;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 public class Poet {
     private String name ;

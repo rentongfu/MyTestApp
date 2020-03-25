@@ -1,7 +1,7 @@
 package com.tongfu.mytestapp.database.sqlbrite;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 public class MyCallback extends SupportSQLiteOpenHelper.Callback {
     public MyCallback(int version) {

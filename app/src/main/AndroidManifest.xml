@@ -6,6 +6,15 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Include required permissions for Google Mobile Ads to run. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,6 +24,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".eventdispatch.EventDispatchTestActivity"></activity>
+        <activity android:name=".systeminfo.SystemInfoActivity" />
+        <activity android:name=".bigimage.BigImageActivity"></activity>
+        <activity android:name=".chart.MPAndroidChartActivity" />
+        <activity android:name=".shell.ShellActivity" />
         <activity android:name=".systeminfo.SystemInfoActivity" />
         <activity android:name=".multidialog.MultiDialogActivity" />
         <activity android:name=".topactivity.BottomActivity" />
@@ -100,12 +113,15 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name=".sampleactivity.SampleFullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_sample_fullscreen"
             android:theme="@style/FullscreenTheme" />
-
         <activity android:name=".sampleactivity.SampleViewModelActivity" />
         <activity android:name=".sampleactivity.SampleEmptyActivity" />
         <activity
@@ -122,14 +138,28 @@
         <activity android:name=".smoothexit.SwipeBackLayoutActivity" />
         <activity android:name=".smoothexit.SmoothExitMenuActivity" />
         <activity android:name=".permission.PermissionActivity" />
+
+        <service
+            android:name=".widget.CalendarService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver android:name=".widget.MyTestWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_test_widget_info" />
+        </receiver>
+
         <activity android:name=".eventbus.EventBusActivity" />
-
         <activity android:name=".managerservice.ManagerServiceActivity" />
-
         <activity
             android:name=".multiprocess.MultiProcessActivity"
             android:process=":child" />
-
         <activity android:name=".swiperefresh.SwipeRefreshActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".crashrecord.CrashRecordActivity" />
@@ -156,56 +186,30 @@
         </activity>
         <activity android:name=".customview.ontouchevent1.OnTouchEventTestActivity" />
         <activity android:name=".contentprovider.ContentProviderActivity" />
-        <activity android:name=".service.MusicPlayActivity" />
-        <activity android:name=".broadcastreceiver.BroadcastReceiverActivity" />
-        <activity android:name=".network.NetworkActivity" />
-
-        <activity android:name=".database.DatabaseMenuActivity" />
-
-        <activity android:name=".nonification.NotificationActivity" />
-
-        <activity android:name=".layout.LayoutActivity" />
-        <activity android:name=".menu.MenuActiivty" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
 
         <provider
             android:name=".contentprovider.MyProvider"
             android:authorities="com.tongfu.mytestapp" />
-        <receiver android:name=".widget.MyTestWidget">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/my_test_widget_info" />
-        </receiver>
-        <receiver
-            android:name=".broadcastreceiver.MyStaticReceiver"
-            android:enabled="true"
-            android:exported="true" />
-        <service
-            android:name=".widget.CalendarService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
             android:name=".service.MusicPlayService"
             android:enabled="true"
             android:exported="true"
             android:process=":music_play_service" />
-    </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Include required permissions for Google Mobile Ads to run. -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.REORDER_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <activity android:name=".service.MusicPlayActivity" />
+        <activity android:name=".broadcastreceiver.BroadcastReceiverActivity" />
+
+        <receiver
+            android:name=".broadcastreceiver.MyStaticReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".network.NetworkActivity" />
+        <activity android:name=".database.DatabaseMenuActivity" />
+        <activity android:name=".nonification.NotificationActivity" />
+        <activity android:name=".layout.LayoutActivity" />
+        <activity android:name=".menu.MenuActiivty" />
+    </application>
 
 </manifest>

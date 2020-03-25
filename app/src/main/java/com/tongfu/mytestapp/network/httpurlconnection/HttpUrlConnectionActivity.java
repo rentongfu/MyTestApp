@@ -3,15 +3,13 @@ package com.tongfu.mytestapp.network.httpurlconnection;
  * 个人对于HttpUrlConnection的使用不太熟悉，所以本界面中主要功能代码来自网络。
  */
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
-
-import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

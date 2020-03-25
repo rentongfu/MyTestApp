@@ -2,18 +2,17 @@ package com.tongfu.mytestapp.lifecycle.fragment;
 
 import android.animation.Animator;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+
+import androidx.fragment.app.Fragment;
 
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.TraceRecorder;

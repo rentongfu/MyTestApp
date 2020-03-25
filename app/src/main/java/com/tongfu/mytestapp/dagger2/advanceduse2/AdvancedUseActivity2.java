@@ -2,8 +2,9 @@ package com.tongfu.mytestapp.dagger2.advanceduse2;
 
 import android.app.ActivityManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.R;
 

@@ -17,8 +17,9 @@ package com.tongfu.mytestapp.ndk.jnicallback;
  */
 
 import android.os.Build;
-import android.support.annotation.Keep;
 import android.util.Log;
+
+import androidx.annotation.Keep;
 
 /*
  * A helper class to demo that JNI could call into:

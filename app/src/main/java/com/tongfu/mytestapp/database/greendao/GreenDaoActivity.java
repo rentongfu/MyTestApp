@@ -1,13 +1,7 @@
 package com.tongfu.mytestapp.database.greendao;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,10 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.database.User;
-import com.tongfu.mytestapp.database.dbsqliteopenhelper.MySQLiteOpenHelper;
-import com.tongfu.mytestapp.database.dbsqliteopenhelper.SQLiteOpenHelperActivity;
 
 import org.greenrobot.greendao.database.Database;
 

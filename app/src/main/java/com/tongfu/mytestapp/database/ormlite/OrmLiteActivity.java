@@ -2,8 +2,6 @@ package com.tongfu.mytestapp.database.ormlite;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,10 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.j256.ormlite.dao.Dao;
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.database.User;
-import com.tongfu.mytestapp.database.greendao.GreenDaoActivity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
