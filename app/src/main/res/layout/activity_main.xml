@@ -246,6 +246,13 @@
                 android:text="MPAndroidChart"
                 android:id="@+id/btn_chart"/>
 
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="官方架构"
+                android:id="@+id/btn_architecture"/>
+
         </LinearLayout>
     </ScrollView>
 

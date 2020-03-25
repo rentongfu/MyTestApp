@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tongfu.mytestapp.animation.AnimationEntryActivity;
+import com.tongfu.mytestapp.architecture.ArchitectureActivity;
 import com.tongfu.mytestapp.broadcastreceiver.BroadcastReceiverActivity;
 import com.tongfu.mytestapp.chart.MPAndroidChartActivity;
 import com.tongfu.mytestapp.contentprovider.ContentProviderActivity;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2,R.id.btn_data_binding,
             R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar , R.id.btn_manager_service ,
             R.id.btn_top_activity , R.id.btn_multi_dialog , R.id.btn_system_info , R.id.btn_dispatch_event , R.id.btn_console,
-            R.id.btn_chart})
+            R.id.btn_chart , R.id.btn_architecture})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -236,6 +237,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this , MPAndroidChartActivity.class);
                 startActivity(intent);
                 break;
+            }
+            case R.id.btn_architecture:{
+                Intent intent = new Intent(this , ArchitectureActivity.class);
+                startActivity(intent);
             }
 
         }
