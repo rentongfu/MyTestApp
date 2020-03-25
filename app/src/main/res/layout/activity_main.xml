@@ -229,6 +229,11 @@
                 android:text="获取系统信息"
                 android:id="@+id/btn_system_info"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="事件分发测试"
+                android:id="@+id/btn_dispatch_event"/>
         </LinearLayout>
     </ScrollView>
 
