@@ -4,12 +4,13 @@
         <variable
             name="poet"
             type="com.tongfu.mytestapp.databinding.Poet"/>
+        <variable
+            name="poet2"
+            type="com.tongfu.mytestapp.databinding.Poet2"/>
     </data>
 
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,6 +37,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{poet.dynasty}"/>
+        <View
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{poet2.name}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{poet2.birthPlace}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{poet2.age}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{poet2.dynasty}"/>
         <Button
             android:text="改变"
             android:layout_width="match_parent"

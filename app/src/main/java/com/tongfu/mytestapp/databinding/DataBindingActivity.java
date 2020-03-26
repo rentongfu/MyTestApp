@@ -14,7 +14,8 @@ import butterknife.OnClick;
 
 public class DataBindingActivity extends AppCompatActivity {
 
-    Poet[] poets = null ;
+    Poet poet = null ;
+    Poet2 poet2 = null ;
 
     ActivityDataBindingBinding dataBindingBinding ;
 
@@ -23,20 +24,20 @@ public class DataBindingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         dataBindingBinding = DataBindingUtil.setContentView(this , R.layout.activity_data_binding);
         ButterKnife.bind(this );
-        poets = new Poet[4] ;
-        poets[0] = new Poet("曹操" , "安徽亳州" , "65" , "东汉");
-        poets[1] = new Poet("陶渊明" , "江西九江" , "62" , "东晋");
-        poets[2] = new Poet("李白"  , "绵阳江油" , "61" , "唐");
-        poets[3] = new Poet("杜甫" , "湖北襄阳" , "58" , "唐");
-        dataBindingBinding.setPoet(poets[0]);
+        poet = new Poet("曹操" , "安徽亳州" , "65" , "东汉");
+        poet2 = new Poet2("陶渊明" , "江西九江" , "62" , "东晋") ;
+        dataBindingBinding.setPoet(poet);
+        dataBindingBinding.setPoet2(poet2);
 
     }
 
     @OnClick(R.id.btn_change)
     public void onClicked(View view){
         Toast.makeText(this, "poets[0]的名字已设置为rentongfu", Toast.LENGTH_SHORT).show();
-        poets[0].setName("rentongfu");//不会刷新对应UIWidget
-        poets[0].getBirthPlace().set("河南辉县");//通过Observable类设置的成员对应的UIWidget可以直接刷新
+        poet.setName("rentongfu");//不会刷新对应UIWidget
+        poet.getBirthPlace().set("河南辉县");//通过Observable类设置的成员对应的UIWidget可以直接刷新
+
+        poet2.setName("rentongfu"); // 如果ViewModel继承了BaseObservable，并在所有的setter方法中执行了notifyChange()，那么任何改动都会刷新界面。
     }
 
 }

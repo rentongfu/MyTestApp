@@ -36,6 +36,7 @@ import com.tongfu.mytestapp.statusbar.StatusBarActivity;
 import com.tongfu.mytestapp.swiperefresh.SwipeRefreshActivity;
 import com.tongfu.mytestapp.systeminfo.SystemInfoActivity;
 import com.tongfu.mytestapp.topactivity.TopMenuActivity;
+import com.tongfu.mytestapp.transition.TransitionActivity;
 import com.tongfu.mytestapp.uiwidget.UIWidgetMenuActivity;
 import com.tongfu.mytestapp.video.VideoPlayEntryActivity;
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_activity_sample,R.id.btn_ui_widget,R.id.btn_ndk,R.id.btn_dagger2,R.id.btn_data_binding,
             R.id.btn_hot_update , R.id.btn_hook , R.id.btn_status_bar , R.id.btn_manager_service ,
             R.id.btn_top_activity , R.id.btn_multi_dialog , R.id.btn_system_info , R.id.btn_console,
-            R.id.btn_chart})
+            R.id.btn_chart ,R.id.btn_transition})
     void onClick(View v){
         switch (v.getId()){
             case R.id.btn_memory:{
@@ -228,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_chart:{
                 Intent intent = new Intent(this , MPAndroidChartActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_transition:{
+                Intent intent = new Intent(this, TransitionActivity.class);
                 startActivity(intent);
                 break;
             }

@@ -241,6 +241,13 @@
                 android:text="MPAndroidChart"
                 android:id="@+id/btn_chart"/>
 
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="过度框架"
+                android:id="@+id/btn_transition"/>
+
         </LinearLayout>
     </ScrollView>
 
