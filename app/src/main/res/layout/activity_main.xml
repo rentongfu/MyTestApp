@@ -232,6 +232,11 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="事件分发测试"
+                android:id="@+id/btn_dispatch_event"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Shell命令行工具"
                 android:id="@+id/btn_console"/>
 
@@ -240,6 +245,13 @@
                 android:layout_height="wrap_content"
                 android:text="MPAndroidChart"
                 android:id="@+id/btn_chart"/>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="官方架构"
+                android:id="@+id/btn_architecture"/>
 
 
             <Button
