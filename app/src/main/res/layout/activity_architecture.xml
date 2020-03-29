@@ -20,4 +20,9 @@
         android:layout_height="wrap_content"
         android:text="Paging"
         android:id="@+id/btn_paging"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WorkManager"
+        android:id="@+id/btn_work_manager"/>
 </LinearLayout>
