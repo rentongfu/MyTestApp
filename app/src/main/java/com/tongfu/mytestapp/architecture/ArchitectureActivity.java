@@ -7,8 +7,10 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.j256.ormlite.stmt.query.In;
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.architecture.lifecycle.LifecycleActivity;
+import com.tongfu.mytestapp.architecture.paging.PagingActivity;
 import com.tongfu.mytestapp.architecture.viewmodel.ViewModelActivity;
 
 import butterknife.ButterKnife;
@@ -21,7 +23,7 @@ public class ArchitectureActivity extends AppCompatActivity implements Lifecycle
         setContentView(R.layout.activity_architecture);
         ButterKnife.bind(this);
     }
-    @OnClick({R.id.btn_lifecycle , R.id.btn_view_model})
+    @OnClick({R.id.btn_lifecycle , R.id.btn_view_model , R.id.btn_paging})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_lifecycle:{
@@ -31,6 +33,11 @@ public class ArchitectureActivity extends AppCompatActivity implements Lifecycle
             }
             case R.id.btn_view_model:{
                 Intent intent = new Intent(this , ViewModelActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_paging:{
+                Intent intent = new Intent(this , PagingActivity.class);
                 startActivity(intent);
                 break;
             }
