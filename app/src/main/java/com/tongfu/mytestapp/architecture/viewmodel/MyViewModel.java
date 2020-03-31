@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MyViewModel extends ViewModel {
+    //ViewModel继承自lifecycle包下的ViewModel类，这么做的目的是为了使这个类能够被ViewModelProviders管理。
     private MutableLiveData<String> name ;
 
     public MutableLiveData<String> getName() {

@@ -25,6 +25,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".database.sqldelight.SqlDelightActivity"></activity>
         <activity android:name=".architecture.viewmodel.ViewModelActivity" />
+        <activity android:name=".architecture.workmanager.WorkManagerActivity"></activity>
+        <activity android:name=".architecture.paging.PagingActivity" />
+        <activity android:name=".architecture.viewmodel.ViewModelActivity" />
         <activity android:name=".architecture.lifecycle.LifecycleActivity" />
         <activity android:name=".architecture.ArchitectureActivity" />
         <activity android:name=".eventdispatch.EventDispatchTestActivity" />
