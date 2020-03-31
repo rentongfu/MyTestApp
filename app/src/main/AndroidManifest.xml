@@ -23,13 +23,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".architecture.viewmodel.ViewModelActivity"></activity>
+        <activity android:name=".database.sqldelight.SqlDelightActivity"></activity>
+        <activity android:name=".architecture.viewmodel.ViewModelActivity" />
         <activity android:name=".architecture.lifecycle.LifecycleActivity" />
         <activity android:name=".architecture.ArchitectureActivity" />
         <activity android:name=".eventdispatch.EventDispatchTestActivity" />
         <activity android:name=".systeminfo.SystemInfoActivity" />
         <activity android:name=".bigimage.BigImageActivity" />
-        <activity android:name=".transition.TransitionActivity"></activity>
+        <activity android:name=".transition.TransitionActivity" />
         <activity android:name=".bigimage.BigImageActivity" />
         <activity android:name=".chart.MPAndroidChartActivity" />
         <activity android:name=".shell.ShellActivity" />
