@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1044041192012",
+    "firebase_url": "https://mytestapp-81c7f.firebaseio.com",
+    "project_id": "mytestapp-81c7f",
+    "storage_bucket": "mytestapp-81c7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044041192012:android:86ef221dea1a4e1b279ae9",
+        "android_client_info": {
+          "package_name": "com.tongfu.mytestapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044041192012-vk9h99mim5dadns4nm73on4tfpsss84b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8JQ_4zp8wtrtlCq7WM9AgtgX_9X9L3jA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044041192012-vk9h99mim5dadns4nm73on4tfpsss84b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

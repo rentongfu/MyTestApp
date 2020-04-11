@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tongfu.mytestapp">
 
+
+    <!-- Include required permissions for Google Mobile Ads to run. -->
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -10,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".architecture.workmanager.WorkManagerActivity"></activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3052609858986892~6336764053"/>
+        <activity android:name=".advertise.AdvertiseActivity"></activity>
+        <activity android:name=".architecture.workmanager.WorkManagerActivity" />
         <activity android:name=".architecture.paging.PagingActivity" />
         <activity android:name=".architecture.viewmodel.ViewModelActivity" />
         <activity android:name=".architecture.lifecycle.LifecycleActivity" />
@@ -19,7 +25,6 @@
         <activity android:name=".systeminfo.SystemInfoActivity" />
         <activity android:name=".bigimage.BigImageActivity" />
         <activity android:name=".transition.TransitionActivity" />
-        <activity android:name=".bigimage.BigImageActivity" />
         <activity android:name=".chart.MPAndroidChartActivity" />
         <activity android:name=".shell.ShellActivity" />
         <activity android:name=".multidialog.MultiDialogActivity" />
@@ -198,15 +203,15 @@
             android:enabled="true"
             android:exported="true"
             android:process=":music_play_service" />
-    </application> <!-- Include required permissions for Google Mobile Ads to run. -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

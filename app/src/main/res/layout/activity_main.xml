@@ -259,6 +259,11 @@
                 android:layout_height="wrap_content"
                 android:text="过度框架"
                 android:id="@+id/btn_transition"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="广告"
+                android:id="@+id/btn_advertise"/>
 
         </LinearLayout>
     </ScrollView>
