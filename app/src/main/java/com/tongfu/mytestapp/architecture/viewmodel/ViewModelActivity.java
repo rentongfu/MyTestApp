@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.tongfu.mytestapp.R;
@@ -23,11 +25,22 @@ public class ViewModelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_model);
         ButterKnife.bind(this);
         myViewModel = ViewModelProviders.of(this).get(MyViewModel.class);
-        myViewModel.getName().observe(this, new Observer<String>() {
+
+        myViewModel.getName();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onChanged(String s) {
-                tvName.setText("当前名字：" + s);
+            public void run() {
+                myViewModel.getName().observe(ViewModelActivity.this, new Observer<String>() {
+                    @Override
+                    public void onChanged(String s) {
+                        Log.i("ViewModelActivity" , s);
+                        tvName.setText("当前名字：" + s);
+                    }
+                });
             }
-        });
+        }, 1000);
+
+
     }
 }

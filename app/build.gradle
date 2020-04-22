@@ -6,13 +6,18 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repositories/jcenter' }
         maven { url 'https://maven.aliyun.com/repositories/google' }
         maven { url 'https://maven.aliyun.com/repository/central' }
+        google()
         mavenCentral()
     }
     dependencies {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        classpath 'com.squareup.sqldelight:gradle-plugin:1.2.2'
     }
 }
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.squareup.sqldelight'
 
 android {
     useLibrary 'org.apache.http.legacy'
@@ -121,6 +126,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.android.gms:play-services-ads:19.0.1'
+    implementation "com.squareup.sqldelight:android-driver:1.2.2"
+    implementation "com.squareup.sqldelight:rxjava2-extensions:1.2.1"
 }
 
 task myTask {

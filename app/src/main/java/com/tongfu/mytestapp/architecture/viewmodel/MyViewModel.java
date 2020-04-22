@@ -11,7 +11,7 @@ public class MyViewModel extends ViewModel {
 
     public MutableLiveData<String> getName() {
         if(name == null){
-            name = new MutableLiveData<>();
+            name = new MutableLiveData<>("初始值");
             loadName();
         }
         return name;
