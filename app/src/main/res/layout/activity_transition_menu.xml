@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".transition.TransitionMenuActivity">
+
+    <Button
+        android:id="@+id/btn_custorm_transition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义Transition" />
+
+    <Button
+        android:id="@+id/btn_animate_layout_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LinearyLayout的animateLayoutChanges属性" />
+</LinearLayout>
