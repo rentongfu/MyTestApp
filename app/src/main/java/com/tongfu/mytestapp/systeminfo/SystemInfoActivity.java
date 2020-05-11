@@ -26,7 +26,11 @@ public class SystemInfoActivity extends AppCompatActivity {
         sb.append("用户（User）：" +Build.USER).append('\n');
         sb.append("设备（Device）：" +Build.DEVICE).append('\n');
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            sb.append("支持的ABI（Supported abis）：" +Build.SUPPORTED_ABIS).append('\n');
+            sb.append("支持的ABI（Supported abis）：");
+            for(String string : Build.SUPPORTED_ABIS){
+                sb.append(string + "; ");
+            }
+            sb.append("\n");
         }
         sb.append("BuildId：" +Build.ID ).append('\n');
         sb.append("Display：" +Build.DISPLAY ).append('\n');
