@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 
 #define  LOG_TAG    "libgl2jni"
@@ -167,4 +168,23 @@ JNIEXPORT jstring JNICALL
 Java_com_rentf_mylibrary_JniUtil_getString(JNIEnv *env, jobject instance) {
     const char* returnValue = "String from Jni" ;
     return env->NewStringUTF( returnValue);
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_tongfu_mytestapp_ndk_performance_NdkPerformanceCompareActivity_executeJni(JNIEnv *env,
+                                                                                   jobject thiz,
+                                                                                   jint value) {
+    clock_t start_time = clock();
+
+    long result = 0;
+    for (int i = 0; i < value ; ++i) {
+        if(i%5 != 0)
+            result+=i;
+        else
+            result-=i;
+    }
+    clock_t end_time = clock();
+
+    LOGI("结果：%ld。NDK c++执行耗时：%ld" ,result, (end_time-start_time)/1000);
+
 }
