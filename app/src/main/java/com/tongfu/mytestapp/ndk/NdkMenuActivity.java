@@ -10,6 +10,7 @@ import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.ndk.hellogl2.HelloGL2Activity;
 import com.tongfu.mytestapp.ndk.jnicallback.JniCallbackActivity;
 import com.tongfu.mytestapp.ndk.nativeactivity.MyNativeActivity;
+import com.tongfu.mytestapp.ndk.performance.NdkPerformanceCompareActivity;
 import com.tongfu.ndkbuildsample.NdkBuildJniUtil;
 
 import butterknife.ButterKnife;
@@ -23,7 +24,7 @@ public class NdkMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ndk_menu);
         ButterKnife.bind(this);
     }
-    @OnClick({R.id.btn_hello_jni , R.id.btn_hello_gl2 ,R.id.btn_jni_callback,R.id.btn_native_activity,R.id.btn_ndk_build})
+    @OnClick({R.id.btn_hello_jni , R.id.btn_hello_gl2 ,R.id.btn_jni_callback,R.id.btn_native_activity,R.id.btn_ndk_build,R.id.btn_jni_performance})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_hello_jni:{
@@ -48,6 +49,11 @@ public class NdkMenuActivity extends AppCompatActivity {
             }
             case R.id.btn_ndk_build:{
                 NdkBuildJniUtil.printHelloWorld();
+                break;
+            }
+            case R.id.btn_jni_performance:{
+                startActivity(new Intent(this , NdkPerformanceCompareActivity.class));
+                break;
             }
         }
     }

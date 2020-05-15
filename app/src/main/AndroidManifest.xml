@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".transition.AnimateLinearLayoutChangeActivity"></activity>
+
+        <activity android:name=".ndk.performance.NdkPerformanceCompareActivity"/>
+        <activity android:name=".transition.AnimateLinearLayoutChangeActivity"/>
         <activity android:name=".transition.TransitionMenuActivity" />
         <activity android:name=".architecture.navigation.NavigationTwoActivity" />
         <activity android:name=".architecture.navigation.NavigationActivity" />
@@ -25,7 +27,6 @@
         <activity android:name=".systeminfo.SystemInfoActivity" />
         <activity android:name=".bigimage.BigImageActivity" />
         <activity android:name=".transition.TransitionActivity" />
-        <activity android:name=".bigimage.BigImageActivity" />
         <activity android:name=".chart.MPAndroidChartActivity" />
         <activity android:name=".shell.ShellActivity" />
         <activity android:name=".multidialog.MultiDialogActivity" />

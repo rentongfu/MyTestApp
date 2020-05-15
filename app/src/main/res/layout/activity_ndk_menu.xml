@@ -31,4 +31,11 @@
         android:layout_height="wrap_content"
         android:text="一个简单的ndk build的demo"
         android:id="@+id/btn_ndk_build"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jni性能对比测试"
+        android:id="@+id/btn_jni_performance"/>
 </LinearLayout>
