@@ -105,24 +105,40 @@
                 android:ems="10"
                 android:inputType="numberDecimal" />
 
+            <TextView
+                android:text="AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="AutoCompleteTextView" />
 
+            <TextView
+                android:text="MultiAutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <MultiAutoCompleteTextView
                 android:id="@+id/multiAutoCompleteTextView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="MultiAutoCompleteTextView" />
 
+            <TextView
+                android:text="CheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <CheckedTextView
                 android:id="@+id/checkedTextView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CheckedTextView" />
 
+            <TextView
+                android:text="Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/button23"
                 android:layout_width="match_parent"
@@ -134,12 +150,20 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:text="MaterialButton"/>-->
 
+            <TextView
+                android:text="ImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/b" />
 
+            <TextView
+                android:text="CheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="match_parent"
@@ -151,16 +175,42 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:text="MaterialCheckBox"/>-->
 
+            <TextView
+                android:text="RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
 
+            </RadioGroup>
+
+            <TextView
+                android:text="RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <RadioButton
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="RadioButton" />
 
+            <TextView
+                android:text="CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <androidx.cardview.widget.CardView
                 android:background="@color/colorPrimary"
                 android:layout_margin="10dp"
@@ -177,18 +227,30 @@
                     android:layout_height="wrap_content"/>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:text="ToggleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <ToggleButton
                 android:id="@+id/toggleButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ToggleButton" />
 
+            <TextView
+                android:text="Switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <Switch
                 android:id="@+id/switch2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Switch" />
 
+            <TextView
+                android:text="FloatingActionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton"
                 android:layout_width="match_parent"
@@ -196,26 +258,59 @@
                 android:clickable="true"
                 app:srcCompat="@drawable/c" />
 
+            <TextView
+                android:text="ImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/a" />
 
+            <TextView
+                android:text="VideoView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <VideoView
                 android:id="@+id/videoView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:text="CalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+
+            <TextView
+                android:text="DatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <DatePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="TimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="ProgressBar with progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <ProgressBar
@@ -223,18 +318,29 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
+            <TextView
+                android:text="ProgressBar with progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <ProgressBar
                 android:id="@+id/progressBar2"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:text="SeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <SeekBar
                 android:id="@+id/seekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:text="SeekBar with Discrete style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <SeekBar
                 android:id="@+id/seekBar2"
                 style="@style/Widget.AppCompat.SeekBar.Discrete"
@@ -243,11 +349,19 @@
                 android:max="10"
                 android:progress="3" />
 
+            <TextView
+                android:text="RatingBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <RatingBar
                 android:id="@+id/ratingBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:text="SearchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
