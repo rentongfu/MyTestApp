@@ -10,9 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".ndk.performance.NdkPerformanceCompareActivity"/>
-        <activity android:name=".transition.AnimateLinearLayoutChangeActivity"/>
+        <activity android:name=".UriActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="mytestapp" android:scheme="rtf" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".rxjava.RxJavaActivity" />
+        <activity android:name=".ndk.performance.NdkPerformanceCompareActivity" />
+        <activity android:name=".transition.AnimateLinearLayoutChangeActivity" />
         <activity android:name=".transition.TransitionMenuActivity" />
         <activity android:name=".architecture.navigation.NavigationTwoActivity" />
         <activity android:name=".architecture.navigation.NavigationActivity" />
@@ -212,14 +220,14 @@
             android:exported="true"
             android:process=":music_play_service" />
     </application>
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
 
 </manifest>

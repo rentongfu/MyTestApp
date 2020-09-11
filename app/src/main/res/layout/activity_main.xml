@@ -264,7 +264,11 @@
                 android:layout_height="wrap_content"
                 android:text="广告"
                 android:id="@+id/btn_advertise"/>
-
+            <Button
+                android:id="@+id/btn_rxjava"
+                android:text="RxJava"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
