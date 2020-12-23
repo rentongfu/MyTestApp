@@ -1,4 +1,4 @@
-package com.tongfu.mytestapp.recyclerview;
+package com.tongfu.mytestapp.recyclerview.base;
 
 import android.view.View;
 import android.widget.TextView;

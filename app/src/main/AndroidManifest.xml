@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signature.SignatureActivity"></activity>
+        <activity android:name=".recyclerview.multistyle.MultiStyleRecyclerViewActivity"></activity>
+        <activity android:name=".signature.SignatureActivity" />
         <activity android:name=".mediastore.MediaStoreActivity" />
         <activity android:name=".saf.SAFActivity" />
         <activity android:name=".UriActivity">
@@ -155,7 +156,7 @@
             android:name=".multiprocess.MultiProcessActivity"
             android:process=":child" />
         <activity android:name=".swiperefresh.SwipeRefreshActivity" />
-        <activity android:name=".recyclerview.RecyclerViewActivity" />
+        <activity android:name=".recyclerview.base.RecyclerViewActivity" />
         <activity android:name=".crashrecord.CrashRecordActivity" />
         <activity android:name=".animation.shareelement.ShareElementActivity2" />
         <activity android:name=".animation.shareelement.ShareElementActivity1" />
@@ -227,14 +228,14 @@
             android:exported="true"
             android:process=":music_play_service" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

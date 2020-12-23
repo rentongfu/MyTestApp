@@ -44,6 +44,11 @@
                 android:layout_height="wrap_content"
                 android:text="Preference Fragment" />
 
+            <Button
+                android:id="@+id/btn_multi_style_recycler_view"
+                android:text="多样式RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
