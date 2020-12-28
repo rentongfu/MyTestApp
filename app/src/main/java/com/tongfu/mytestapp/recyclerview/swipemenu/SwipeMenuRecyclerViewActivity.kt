@@ -1,5 +1,6 @@
 package com.tongfu.mytestapp.recyclerview.swipemenu
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
@@ -16,6 +17,10 @@ import com.yanzhenjie.recyclerview.SwipeMenuCreator
 import com.yanzhenjie.recyclerview.SwipeMenuItem
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 
+fun dpToPixel(dp:Int , context: Context):Int {
+    val scale = context.resources.displayMetrics.density
+    return (dp * scale + 0.5f).toInt()
+}
 
 class SwipeMenuRecyclerViewActivity : AppCompatActivity() {
     @BindView(R.id.srv)
@@ -36,23 +41,26 @@ class SwipeMenuRecyclerViewActivity : AppCompatActivity() {
         }
     }
 
+//    private
+
     private val swipeMenuCreator = SwipeMenuCreator { leftMenu, rightMenu, position ->
+        val menuItemWidth = dpToPixel(72 ,this )
         val menuItem = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
         menuItem.text = "删除"
-        menuItem.width = 144
+        menuItem.width = menuItemWidth
         menuItem.height = ViewGroup.LayoutParams.MATCH_PARENT
         menuItem.setBackgroundColor(Color.RED)
         leftMenu?.addMenuItem(menuItem)
         val menuItem2 = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
         menuItem2.text = "编辑"
-        menuItem2.width = 144
+        menuItem2.width = menuItemWidth
         menuItem2.height = ViewGroup.LayoutParams.MATCH_PARENT
         menuItem2.setBackgroundColor(Color.GREEN)
         rightMenu?.addMenuItem(menuItem2)
 
         val menuItem3 = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
         menuItem3.text = "标记"
-        menuItem3.width = 144
+        menuItem3.width = menuItemWidth
         menuItem3.height = ViewGroup.LayoutParams.MATCH_PARENT
         menuItem3.setBackgroundColor(Color.BLUE)
         rightMenu?.addMenuItem(menuItem3)
