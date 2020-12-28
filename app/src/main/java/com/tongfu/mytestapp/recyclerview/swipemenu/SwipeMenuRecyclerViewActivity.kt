@@ -1,5 +1,6 @@
 package com.tongfu.mytestapp.recyclerview.swipemenu
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.tongfu.mytestapp.R
-import com.yanzhenjie.recyclerview.*
+import com.yanzhenjie.recyclerview.OnItemMenuClickListener
+import com.yanzhenjie.recyclerview.SwipeMenuCreator
+import com.yanzhenjie.recyclerview.SwipeMenuItem
+import com.yanzhenjie.recyclerview.SwipeRecyclerView
 
 
 class SwipeMenuRecyclerViewActivity : AppCompatActivity() {
@@ -32,34 +36,42 @@ class SwipeMenuRecyclerViewActivity : AppCompatActivity() {
         }
     }
 
-    val swipeMenuCreator = object :SwipeMenuCreator{
-        override fun onCreateMenu(leftMenu: SwipeMenu?, rightMenu: SwipeMenu?, position: Int) {
-            val menuItem = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
-            menuItem.text = "删除"
-            leftMenu?.addMenuItem(menuItem)
-            val menuItem2 = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
-            menuItem2.text = "编辑"
-            rightMenu?.addMenuItem(menuItem2)
-        }
-    }
-    val swipeMenuListener = object :OnItemMenuClickListener{
-        override fun onItemClick(menuBridge: SwipeMenuBridge?, adapterPosition: Int) {
-            menuBridge?.closeMenu()
-            val direction = menuBridge!!.direction
-            val menuPosition = menuBridge.position
-            Toast.makeText(this@SwipeMenuRecyclerViewActivity , "侧滑菜单显示，方向：$direction，位置：$menuPosition"   , Toast.LENGTH_SHORT).show()
-        }
+    private val swipeMenuCreator = SwipeMenuCreator { leftMenu, rightMenu, position ->
+        val menuItem = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
+        menuItem.text = "删除"
+        menuItem.width = 144
+        menuItem.height = ViewGroup.LayoutParams.MATCH_PARENT
+        menuItem.setBackgroundColor(Color.RED)
+        leftMenu?.addMenuItem(menuItem)
+        val menuItem2 = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
+        menuItem2.text = "编辑"
+        menuItem2.width = 144
+        menuItem2.height = ViewGroup.LayoutParams.MATCH_PARENT
+        menuItem2.setBackgroundColor(Color.GREEN)
+        rightMenu?.addMenuItem(menuItem2)
 
+        val menuItem3 = SwipeMenuItem(this@SwipeMenuRecyclerViewActivity)
+        menuItem3.text = "标记"
+        menuItem3.width = 144
+        menuItem3.height = ViewGroup.LayoutParams.MATCH_PARENT
+        menuItem3.setBackgroundColor(Color.BLUE)
+        rightMenu?.addMenuItem(menuItem3)
+    }
+    private val swipeMenuListener = OnItemMenuClickListener { menuBridge, adapterPosition ->
+        menuBridge?.closeMenu()
+        val direction = menuBridge!!.direction
+        val menuPosition = menuBridge.position
+        Toast.makeText(this@SwipeMenuRecyclerViewActivity , "侧滑菜单显示，索引：$adapterPosition，方向：$direction，位置：$menuPosition"   , Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_swipe_menu_recycler_view)
         ButterKnife.bind(this)
-        srv.adapter = adapter
         srv.layoutManager = LinearLayoutManager(this , RecyclerView.VERTICAL ,false)
         srv.addItemDecoration(DividerItemDecoration(this , DividerItemDecoration.VERTICAL))
         srv.setSwipeMenuCreator(swipeMenuCreator)
         srv.setOnItemMenuClickListener(swipeMenuListener)
+        srv.adapter = adapter
     }
 }
