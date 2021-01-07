@@ -284,6 +284,12 @@
                 android:text="签名检查"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_bitmap_transform"
+                android:text="Bitmap Transform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
