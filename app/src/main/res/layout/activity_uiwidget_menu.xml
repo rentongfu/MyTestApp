@@ -54,6 +54,11 @@
                 android:text="支持侧滑的RecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btn_view_pager_2"
+                android:text="ViewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
