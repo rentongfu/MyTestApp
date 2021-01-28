@@ -25,7 +25,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <jni.h>
-#include <errno.h>
+#include <cerrno>
 #include <cassert>
 
 #include <EGL/egl.h>
@@ -37,6 +37,16 @@
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "native-activity", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "native-activity", __VA_ARGS__))
+
+/**
+ * 用到的调用：
+ *      __android_log_print 定义在android/log.h中，用于打印日志
+ *      dlopen  定义在dlfcn.h中，打开动态链接库
+ *      dlsym   定义在dlfcn.h中，获取动态链接库中的函数指针
+ *      dlclose 定义在dlfcn.h中，关闭动态链接库
+ *
+ *
+ */
 
 /**
  * Our saved state data.
@@ -201,7 +211,11 @@ static void engine_term_display(struct engine* engine) {
 static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) {
     struct engine* engine = (struct engine*)app->userData;
     if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION) {
-        engine->animating = 1;
+        if(engine->animating == 1){
+            engine->animating = 0;
+        }else{
+            engine->animating = 1;
+        }
         engine->state.x = AMotionEvent_getX(event, 0);
         engine->state.y = AMotionEvent_getY(event, 0);
         return 1;
@@ -257,53 +271,6 @@ static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
     }
 }
 
-/*
- * AcquireASensorManagerInstance(void)
- *    Workaround ASensorManager_getInstance() deprecation false alarm
- *    for Android-N and before, when compiling with NDK-r15
- */
-#include <dlfcn.h>
-ASensorManager* AcquireASensorManagerInstance(android_app* app) {
-
-    if(!app)
-        return nullptr;
-
-    typedef ASensorManager *(*PF_GETINSTANCEFORPACKAGE)(const char *name);
-    void* androidHandle = dlopen("libandroid.so", RTLD_NOW);
-    PF_GETINSTANCEFORPACKAGE getInstanceForPackageFunc = (PF_GETINSTANCEFORPACKAGE)
-            dlsym(androidHandle, "ASensorManager_getInstanceForPackage");
-    if (getInstanceForPackageFunc) {
-        JNIEnv* env = nullptr;
-        app->activity->vm->AttachCurrentThread(&env, NULL);
-
-        jclass android_content_Context = env->GetObjectClass(app->activity->clazz);
-        jmethodID midGetPackageName = env->GetMethodID(android_content_Context,
-                                                       "getPackageName",
-                                                       "()Ljava/lang/String;");
-        jstring packageName= (jstring)env->CallObjectMethod(app->activity->clazz,
-                                                            midGetPackageName);
-
-        const char *nativePackageName = env->GetStringUTFChars(packageName, 0);
-        ASensorManager* mgr = getInstanceForPackageFunc(nativePackageName);
-        env->ReleaseStringUTFChars(packageName, nativePackageName);
-        app->activity->vm->DetachCurrentThread();
-        if (mgr) {
-            dlclose(androidHandle);
-            return mgr;
-        }
-    }
-
-    typedef ASensorManager *(*PF_GETINSTANCE)();
-    PF_GETINSTANCE getInstanceFunc = (PF_GETINSTANCE)
-            dlsym(androidHandle, "ASensorManager_getInstance");
-    // by all means at this point, ASensorManager_getInstance should be available
-    assert(getInstanceFunc);
-    dlclose(androidHandle);
-
-    return getInstanceFunc();
-}
-
-
 /**
  * This is the main entry point of a native application that is using
  * android_native_app_glue.  It runs in its own thread, with its own
@@ -314,19 +281,18 @@ void android_main(struct android_app* state) {
 
     memset(&engine, 0, sizeof(engine));
     state->userData = &engine;
+    //注册命令回调
     state->onAppCmd = engine_handle_cmd;
+    //注册事件监听器
     state->onInputEvent = engine_handle_input;
     engine.app = state;
 
-    // Prepare to monitor accelerometer
-    engine.sensorManager = AcquireASensorManagerInstance(state);
-    engine.accelerometerSensor = ASensorManager_getDefaultSensor(
-            engine.sensorManager,
-            ASENSOR_TYPE_ACCELEROMETER);
-    engine.sensorEventQueue = ASensorManager_createEventQueue(
-            engine.sensorManager,
-            state->looper, LOOPER_ID_USER,
-            NULL, NULL);
+    // 获取传感器管理器
+    engine.sensorManager = ASensorManager_getInstance();
+    // 获取加速度传感器
+    engine.accelerometerSensor = ASensorManager_getDefaultSensor(  engine.sensorManager,ASENSOR_TYPE_ACCELEROMETER);
+    // 创建加速度传感器事件队列
+    engine.sensorEventQueue = ASensorManager_createEventQueue( engine.sensorManager, state->looper, LOOPER_ID_USER,NULL, NULL);
 
     if (state->savedState != NULL) {
         // We are starting with a previous saved state; restore from it.
@@ -335,7 +301,7 @@ void android_main(struct android_app* state) {
 
     // loop waiting for stuff to do.
 
-    while (1) {
+    while (true) {
         // Read all pending events.
         int ident;
         int events;
@@ -344,6 +310,7 @@ void android_main(struct android_app* state) {
         // If not animating, we will block forever waiting for events.
         // If animating, we loop until all events are read, then continue
         // to draw the next frame of animation.
+        // 等待事件，0代表直接返回，不等待，-1表示在新的事件来临前无限等待。
         while ((ident=ALooper_pollAll(engine.animating ? 0 : -1, NULL, &events,
                                       (void**)&source)) >= 0) {
 
@@ -352,7 +319,7 @@ void android_main(struct android_app* state) {
                 source->process(state, source);
             }
 
-            // If a sensor has data, process it now.
+            // 处理传感器的事件队列
             if (ident == LOOPER_ID_USER) {
                 if (engine.accelerometerSensor != NULL) {
                     ASensorEvent event;

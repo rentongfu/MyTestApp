@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * GLSurfaceView的使用demo，
+ */
 public class HelloGL2Activity extends AppCompatActivity {
 
     GLSurfaceView mView = null ;
