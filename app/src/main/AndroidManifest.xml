@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".uiwidget.viewpager2.ViewPager2Activity"></activity>
+        <activity android:name=".ndk.jnicall.JNICallActivity"></activity>
+        <activity android:name=".uiwidget.viewpager2.ViewPager2Activity" />
         <activity android:name=".bitmap.BitmapTransformActivity" />
         <activity android:name=".recyclerview.swipemenu.SwipeMenuRecyclerViewActivity" />
         <activity android:name=".recyclerview.multistyle.MultiStyleRecyclerViewActivity" />
@@ -231,14 +232,14 @@
             android:exported="true"
             android:process=":music_play_service" />
     </application>
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
 
 </manifest>

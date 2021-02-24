@@ -24,3 +24,5 @@ add_library( mynativeactivity SHARED mynativeactivity.cpp)
 target_include_directories(mynativeactivity PRIVATE ${ANDROID_NDK}/sources/android/native_app_glue)
 
 target_link_libraries(mynativeactivity android native_app_glue EGL GLESv1_CM log)
+
+add_library(native_call SHARED native_call.cpp)
