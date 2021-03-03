@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.squareup.picasso.Picasso
 import com.tongfu.mytestapp.R
 
@@ -33,7 +35,8 @@ class GlideActivity : AppCompatActivity() {
         }
 
 //        Glide.with()
+        Glide.with(this).load(url).apply(RequestOptions.fitCenterTransform()).into(iv_image)
 
-        Picasso.with(this).load(url).placeholder(R.drawable.ic_blank).error(R.drawable.ic_error).into(iv_image)
+//        Picasso.with(this).load(url).placeholder(R.drawable.ic_blank).error(R.drawable.ic_error).into(iv_image)
     }
 }
