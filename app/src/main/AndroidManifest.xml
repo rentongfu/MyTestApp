@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".contact.ContactActivity"></activity>
+        <activity android:name=".uiwidget.textureview.TextureViewActivity"></activity>
+        <activity android:name=".contact.ContactActivity" />
         <activity android:name=".imageload.GlideActivity" />
         <activity android:name=".ndk.jnicall.JNICallActivity" />
         <activity android:name=".uiwidget.viewpager2.ViewPager2Activity" />

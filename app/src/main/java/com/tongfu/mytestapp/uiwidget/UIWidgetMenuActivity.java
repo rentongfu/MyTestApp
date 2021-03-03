@@ -12,6 +12,7 @@ import com.tongfu.mytestapp.recyclerview.multistyle.MultiStyleRecyclerViewActivi
 import com.tongfu.mytestapp.recyclerview.swipemenu.SwipeMenuRecyclerViewActivity;
 import com.tongfu.mytestapp.uiwidget.preferenceactivity.PreferenceFragmentTestActivity;
 import com.tongfu.mytestapp.uiwidget.surfaceview.SurfaceViewActivity;
+import com.tongfu.mytestapp.uiwidget.textureview.TextureViewActivity;
 import com.tongfu.mytestapp.uiwidget.viewpager2.ViewPager2Activity;
 
 import butterknife.ButterKnife;
@@ -27,7 +28,8 @@ public class UIWidgetMenuActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_other ,R.id.btn_recycler_view,R.id.btn_surface_view,R.id.btn_preference_fragment,
-            R.id.btn_multi_style_recycler_view ,R.id.btn_swipe_recycler_view , R.id.btn_view_pager_2})
+            R.id.btn_multi_style_recycler_view ,R.id.btn_swipe_recycler_view , R.id.btn_view_pager_2,
+            R.id.btn_texture_view})
     public void onClicked(View view){
         switch (view.getId()){
             case R.id.btn_other:{
@@ -62,6 +64,12 @@ public class UIWidgetMenuActivity extends AppCompatActivity {
             }
             case R.id.btn_view_pager_2:{
                 Intent intent = new Intent(this , ViewPager2Activity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_texture_view:{
+
+                Intent intent = new Intent(this , TextureViewActivity.class);
                 startActivity(intent);
                 break;
             }
