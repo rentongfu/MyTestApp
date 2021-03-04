@@ -17,3 +17,6 @@ SELECT * FROM hockeyPlayer ;
 
 update:
 UPDATE hockeyPlayer SET full_name = ? WHERE player_number = ? ;
+
+deleteById:
+DELETE FROM hockeyPlayer WHERE player_number = ?;
