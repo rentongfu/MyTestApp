@@ -38,4 +38,11 @@
         android:layout_height="wrap_content"
         android:text="jni性能对比测试"
         android:id="@+id/btn_jni_performance"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jni操作SurfaceView"
+        android:id="@+id/btn_jni_surface_view"/>
 </LinearLayout>
