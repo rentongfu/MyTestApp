@@ -4,8 +4,6 @@
 
 #include "android/native_window_jni.h"
 #include <jni.h>
-#include <cstdlib>
-#include "cstring"
 
 void draw(JNIEnv* env , jobject surfaceObj){
     ANativeWindow_Buffer buffer ;
