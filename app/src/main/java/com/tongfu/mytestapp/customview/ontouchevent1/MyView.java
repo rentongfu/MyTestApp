@@ -1,5 +1,7 @@
 package com.tongfu.mytestapp.customview.ontouchevent1;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -48,6 +50,8 @@ public class MyView extends View {
     private final int INIT_WIDTH = 200 ;
     private final int INIT_HEIGHT = 100 ;
 
+    private ValueAnimator animator = null;
+
     /**
      * 页面打开时调用，内部必须调用setMeasuredDimension。传入的值后续会影响layout和onLayout方法接受的值。
      * 理论上也可以重写layout方法，将计算宽高的逻辑放在layout方法里面。本demo中onTouchEvent中就是这么做的。
@@ -63,7 +67,8 @@ public class MyView extends View {
 
 
     private final int[] colors = {Color.RED , Color.GREEN , Color.BLACK , Color.GREEN , Color.BLUE , Color.DKGRAY , Color.LTGRAY , Color.YELLOW , Color.MAGENTA};
-
+    private int prevColor = Color.WHITE ;
+    private int currentColor = prevColor ;
     /**
      * 触发时机：
      *  调用invalidate()之后
@@ -74,7 +79,7 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         Log.i("MyView" , "onDraw");
         super.onDraw(canvas);
-        canvas.drawColor(colors[(int)(Math.random()* colors.length)]);
+        canvas.drawColor(currentColor);
     }
 
     int lastX,lastY ;
@@ -103,7 +108,43 @@ public class MyView extends View {
                 break;
             }
             case MotionEvent.ACTION_UP:{
-                invalidate();
+//                invalidate();
+                if(animator == null){
+                    animator = ValueAnimator.ofArgb( prevColor ,  colors[(int)(Math.random()* colors.length)]);
+                    animator.setDuration(1000);
+                    animator.setRepeatCount(0);
+                    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animation) {
+                            currentColor = (int) animation.getAnimatedValue();
+                            invalidate();
+                        }
+                    });
+                    animator.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            prevColor = currentColor ;
+                            animator = null ;
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+                    });
+                    animator.start();
+                }
+
                 break;
             }
             default:
