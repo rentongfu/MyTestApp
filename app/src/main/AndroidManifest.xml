@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".loadermanager.LoaderManagerActivity"></activity>
+        <activity android:name=".uiwidget.listview.ListViewActivity"></activity>
+        <activity android:name=".loadermanager.LoaderManagerActivity" />
         <activity android:name=".uiwidget.popup.PopupActivity" />
         <activity android:name=".ndk.nativesurface.NativeSurfaceActivity" />
         <activity android:name=".uiwidget.textureview.TextureViewActivity" />

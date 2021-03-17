@@ -15,4 +15,7 @@
         android:text="sfds"
         android:id="@+id/tv_name"
         android:layout_gravity="center"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
