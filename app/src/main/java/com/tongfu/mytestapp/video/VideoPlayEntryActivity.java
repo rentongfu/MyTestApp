@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -43,6 +44,33 @@ public class VideoPlayEntryActivity extends AppCompatActivity {
     @BindView(R.id.lv_main)
     ListView lvMain;
 
+    BaseAdapter adapter = new BaseAdapter() {
+        @Override
+        public int getCount() {
+            return viewUrls.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return viewUrls.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null){
+                convertView = getLayoutInflater().inflate(R.layout.layout_video_list_view_item , parent , false) ;
+            }
+            TextView tvName = convertView.findViewById(R.id.tv_name);
+            tvName.setText(viewUrls.get(position));
+            return convertView;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,40 +96,29 @@ public class VideoPlayEntryActivity extends AppCompatActivity {
             public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
 //                Toast.makeText(LoaderManagerActivity.this , "获取到" + data.size() + "条数据" , Toast.LENGTH_SHORT).show();
                 while(data.moveToNext()){
-                    viewUrls.add(data.getString(data.getColumnIndex("")));
+                    viewUrls.add(data.getString(data.getColumnIndex(MediaStore.Video.Thumbnails.DATA)));
+
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+                viewUrls.clear();
+                adapter.notifyDataSetChanged();
 //                Toast.makeText(LoaderManagerActivity.this , "加载被重置" , Toast.LENGTH_SHORT).show();
 
             }
         }).forceLoad();
-        lvMain.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return viewUrls.size();
-            }
+        lvMain.setAdapter(adapter);
 
+        lvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public Object getItem(int position) {
-                return viewUrls.get(position);
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return position;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if(convertView == null){
-                    convertView = getLayoutInflater().inflate(R.layout.layout_video_list_view_item , parent , false) ;
-                }
-                TextView tvName = convertView.findViewById(R.id.tv_name);
-                tvName.setText(viewUrls.get(position));
-                return convertView;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = viewUrls.get(position);
+                Intent intent = new Intent(VideoPlayEntryActivity.this , VideoPlayActivity.class);
+                intent.putExtra("url" , url );
+                startActivity(intent);
             }
         });
     }
