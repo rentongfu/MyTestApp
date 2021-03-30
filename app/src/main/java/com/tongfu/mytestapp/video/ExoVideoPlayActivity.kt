@@ -146,10 +146,16 @@ class ExoVideoPlayActivity : AppCompatActivity() {
                             if (screenFlag) //是全屏
                             {
                                 screenFlag = false //设置为半屏
+                                supportActionBar?.show()
                                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                             } else {
                                 screenFlag = true //设置为全屏
+                                supportActionBar?.hide()
                                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                                window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                                window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                             }
                         })
 
