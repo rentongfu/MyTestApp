@@ -58,6 +58,18 @@ class ExoVideoPlayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ijk_video_play)
         ButterKnife.bind(this)
+        if(savedInstanceState!=null){
+            screenFlag = savedInstanceState.getBoolean("screenFlag")
+        }
+        if(screenFlag){
+            supportActionBar?.hide()
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }else{
+            supportActionBar?.show()
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         val bandwidthMeter = DefaultBandwidthMeter()
         val videoTrackSelectionFactor: TrackSelection.Factory = AdaptiveTrackSelection.Factory()
@@ -143,19 +155,12 @@ class ExoVideoPlayActivity : AppCompatActivity() {
                         }
                         //全屏切换
                         btnFullscreen.setOnClickListener(View.OnClickListener {
-                            if (screenFlag) //是全屏
-                            {
+                            if (screenFlag){ //是全屏
                                 screenFlag = false //设置为半屏
-                                supportActionBar?.show()
                                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                                window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
-                                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                             } else {
                                 screenFlag = true //设置为全屏
-                                supportActionBar?.hide()
                                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                                window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                                window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                             }
                         })
 
@@ -191,6 +196,11 @@ class ExoVideoPlayActivity : AppCompatActivity() {
     }
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("screenFlag" , screenFlag)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onDestroy() {
