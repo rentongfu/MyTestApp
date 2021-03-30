@@ -22,7 +22,7 @@ class IjkVideoPlayActivity : AppCompatActivity() {
 
 
     @BindView(R.id.surfaceView)
-    var surfaceView: SurfaceView? = null
+    lateinit var surfaceView: SurfaceView
 
     var mediaPlayer: IjkMediaPlayer? = null
 

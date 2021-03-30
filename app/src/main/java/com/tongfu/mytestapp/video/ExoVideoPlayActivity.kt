@@ -6,6 +6,7 @@ import android.media.session.PlaybackState
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
@@ -117,7 +118,7 @@ class ExoVideoPlayActivity : AppCompatActivity() {
                         //设置总时长
                         totalPlayerTime.text = (mediaPlayer.duration/1000).toString();
 
-                        seekBar.max = (mediaPlayer.getDuration() / 1000) as Int
+                        seekBar.max = (mediaPlayer.getDuration() / 1000).toInt()
                         seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
                             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {}
                             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -172,6 +173,15 @@ class ExoVideoPlayActivity : AppCompatActivity() {
                 }
             }
         })
+        mediaPlayer.setVideoSurfaceView(surfaceView)
+//        surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+//            override fun surfaceCreated(holder: SurfaceHolder) {
+//                mediaPlayer.setVideoSurfaceHolder(holder)
+//            }
+//
+//            override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
+//            override fun surfaceDestroyed(holder: SurfaceHolder) {}
+//        })
     }
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
