@@ -91,7 +91,7 @@ class SqlDelightActivity : AppCompatActivity() {
                 builder.setTitle("更新用户")
                 builder.setPositiveButton("确定") { dialog, which ->
                     val user = hockeyPlayerList[selectedItemIndex]
-                    update(HockeyPlayer.Impl(user.player_number , editText.text.toString()))
+                    update(HockeyPlayer(user.player_number , editText.text.toString()))
                 }
                 builder.setNegativeButton("取消") { dialog, which -> }
                 builder.create().show()
@@ -126,7 +126,7 @@ class SqlDelightActivity : AppCompatActivity() {
                 builder.setView(editText)
                 builder.setTitle("添加用户")
                 builder.setPositiveButton("确定") { dialog, which ->
-                    val player:HockeyPlayer = HockeyPlayer.Impl(0 , editText.text.toString())
+                    val player:HockeyPlayer = HockeyPlayer(0 , editText.text.toString())
                     add(player)
                 }
                 builder.setNegativeButton("取消") { dialog, which -> }
