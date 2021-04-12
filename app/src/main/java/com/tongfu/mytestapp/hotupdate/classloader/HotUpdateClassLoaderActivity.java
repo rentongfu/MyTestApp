@@ -1,146 +1,1 @@
-package com.tongfu.mytestapp.hotupdate.classloader;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.tongfu.mytestapp.R;
-import com.tongfu.mytestapp.TraceRecorder;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-
-import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class HotUpdateClassLoaderActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hot_update_class_loader);
-        ButterKnife.bind(this);
-    }
-
-    @BindView(R.id.et_console)
-    EditText etConsonle;
-
-    @OnClick({R.id.btn_print_class_loader,R.id.btn_clear_console, R.id.print_sample_class, R.id.change_class_loader,R.id.btn_load_external_class})
-    public void onClick(View view){
-        switch (view.getId()){
-            case R.id.btn_print_class_loader:{
-
-                ClassLoader classLoader = TraceRecorder.class.getClassLoader();
-                do {
-                    etConsonle.append( classLoader.toString());
-                    etConsonle.append("\n");
-                    classLoader = classLoader.getParent();
-                }while (classLoader!=null);
-                break;
-            }
-            case R.id.btn_clear_console:{
-                etConsonle.setText("");
-                break;
-            }
-            case R.id.print_sample_class:{
-//                etConsonle.append(SampleClass.getName());
-                try {
-//                    etConsonle.append((String)Class.forName("com.tongfu.mytestapp.hotupdate.classloader.SampleClass").getDeclaredMethod("getName").invoke(null));
-                    etConsonle.append(SampleClass.getName());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                     etConsonle.append(e.getMessage());
-                }
-                break;
-            }
-            case R.id.change_class_loader:{
-                try {
-                    ClassLoader classLoader = getClassLoader();
-                    Field field = classLoader.getClass().getSuperclass().getDeclaredField("pathList");
-                    field.setAccessible(true);
-                    Object dexPathList =  field.get( classLoader );
-
-                    Class dexPathListClass = dexPathList.getClass() ;
-
-                    Field elementsField = dexPathListClass.getDeclaredField("dexElements");
-                    elementsField.setAccessible(true);
-                    Object[] elements = (Object[])elementsField.get(dexPathList);
-
-                    Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makeDexElements" , List.class, File.class, List.class , ClassLoader.class );
-                    File file = new File(getCacheDir().getAbsolutePath() + "/hotupdate/patch.apk");
-                    if(!file.exists()){
-                        file.getParentFile().mkdirs();
-                        file.createNewFile();
-                        FileUtils.writeByteArrayToFile(file ,IOUtils.toByteArray(getAssets().open("patch.apk")));
-                    }
-                    List<File> fileList = new ArrayList<>();
-                    fileList.add(file);
-                    makeDexElementsMethod.setAccessible(true);
-                    Object[] myElements =(Object[]) makeDexElementsMethod.invoke( dexPathList , fileList , file.getParentFile().getParentFile() , new ArrayList<>() , null );
-
-                    Object[] newElements =(Object[]) Array.newInstance(elements.getClass().getComponentType() , elements.length+1);
-                    newElements[0] = myElements[0] ;
-                    System.arraycopy(elements , 0 , newElements ,1 , elements.length);
-                    elementsField.set(dexPathList , newElements);
-
-//                    ((PathClassLoader)classLoader).loadClass("com.tongfu.mytestapp.hotupdate.classloader.SampleClass");
-
-//                    MultiDex.install(this);
-
-                } catch (Exception e) {
-                    etConsonle.append(e.getMessage());
-                    e.printStackTrace();
-                }
-                break;
-            }
-            case R.id.btn_load_external_class:{
-
-                try {
-                    ClassLoader classLoader = getClassLoader();
-                    Field field = classLoader.getClass().getSuperclass().getDeclaredField("pathList");
-                    field.setAccessible(true);
-                    Object dexPathList =  field.get( classLoader );
-
-                    Class dexPathListClass = dexPathList.getClass() ;
-
-                    Field elementsField = dexPathListClass.getDeclaredField("dexElements");
-                    elementsField.setAccessible(true);
-                    Object[] elements = (Object[])elementsField.get(dexPathList);
-
-                    Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makePathElements" , List.class, File.class, List.class );
-                    File file = new File(getCacheDir().getAbsolutePath() + "/hotupdate/patch.apk");
-                    if(!file.exists()){
-                        file.getParentFile().mkdirs();
-                        file.createNewFile();
-                        FileUtils.writeByteArrayToFile(file ,IOUtils.toByteArray(getAssets().open("patch.apk")));
-                    }
-                    List<File> fileList = new ArrayList<>();
-                    fileList.add(file);
-                    makeDexElementsMethod.setAccessible(true);
-                    Object[] myElements =(Object[]) makeDexElementsMethod.invoke( dexPathList , fileList , file.getParentFile() , new ArrayList<>() );
-
-                    Class elementClass = myElements[0].getClass() ;
-                    Method elementLoadClassMethod = elementClass.getDeclaredMethod("findClass" , String.class , ClassLoader.class , List.class);
-                    Class myClass = (Class) elementLoadClassMethod.invoke(myElements[0] , "com.tongfu.mytestapp.hotupdate.classloader.SampleClass" , classLoader , new ArrayList<>());
-                    Method getNameMethod = myClass.getMethod("getName");
-                    etConsonle.append((String)getNameMethod.invoke(null));
-
-                } catch (Exception e) {
-                    etConsonle.append(e.getMessage());
-                    e.printStackTrace();
-                }
-                break;
-            }
-        }
-    }
-}
+package com.tongfu.mytestapp.hotupdate.classloader;import android.os.Bundle;import android.view.View;import android.widget.EditText;import androidx.appcompat.app.AppCompatActivity;import com.tongfu.mytestapp.R;import com.tongfu.mytestapp.TraceRecorder;import org.apache.commons.io.FileUtils;import org.apache.commons.io.IOUtils;import java.io.File;import java.lang.reflect.Array;import java.lang.reflect.Field;import java.lang.reflect.Method;import java.util.ArrayList;import java.util.List;import java.util.concurrent.Callable;import java.util.concurrent.FutureTask;import butterknife.BindView;import butterknife.ButterKnife;import butterknife.OnClick;public class HotUpdateClassLoaderActivity extends AppCompatActivity {    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_hot_update_class_loader);        ButterKnife.bind(this);    }    @BindView(R.id.et_console)    EditText etConsonle;    @OnClick({R.id.btn_print_class_loader,R.id.btn_clear_console, R.id.print_sample_class, R.id.change_class_loader,R.id.btn_load_external_class})    public void onClick(View view){        new FutureTask<String>(                new Callable<String>() {                    @Override                    public String call() throws Exception {                        return "";                    }                }        );        switch (view.getId()){            case R.id.btn_print_class_loader:{                ClassLoader classLoader = TraceRecorder.class.getClassLoader();                do {                    etConsonle.append( classLoader.toString());                    etConsonle.append("\n");                    classLoader = classLoader.getParent();                }while (classLoader!=null);                break;            }            case R.id.btn_clear_console:{                etConsonle.setText("");                break;            }            case R.id.print_sample_class:{//                etConsonle.append(SampleClass.getName());                try {//                    etConsonle.append((String)Class.forName("com.tongfu.mytestapp.hotupdate.classloader.SampleClass").getDeclaredMethod("getName").invoke(null));                    etConsonle.append(SampleClass.getName());                } catch (Exception e) {                    e.printStackTrace();                     etConsonle.append(e.getMessage());                }                break;            }            case R.id.change_class_loader:{                try {                    //获取默认的类加载器：PathClassLoader                    ClassLoader classLoader = getClassLoader();                    //获得Element数组的持有者DexPath pathList                    Field field = classLoader.getClass().getSuperclass().getDeclaredField("pathList");                    field.setAccessible(true);                    Object dexPathList =  field.get( classLoader );                    Class dexPathListClass = dexPathList.getClass() ;                    //获得Element数组dexElements                    Field elementsField = dexPathListClass.getDeclaredField("dexElements");                    elementsField.setAccessible(true);                    Object[] elements = (Object[])elementsField.get(dexPathList);                    //准备补丁文件                    File file = new File(getCacheDir().getAbsolutePath() + "/hotupdate/patch.apk");                    if(!file.exists()){                        file.getParentFile().mkdirs();                        file.createNewFile();                        FileUtils.writeByteArrayToFile(file ,IOUtils.toByteArray(getAssets().open("patch.apk")));                    }                    //根据补丁文件创建新的Element数组                    Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makeDexElements" , List.class, File.class, List.class , ClassLoader.class );                    makeDexElementsMethod.setAccessible(true);                    List<File> fileList = new ArrayList<>();                    fileList.add(file);                    Object[] myElements =(Object[]) makeDexElementsMethod.invoke( dexPathList , fileList , file.getParentFile().getParentFile() , new ArrayList<>() , null );                    //创建新的Element数组                    Object[] newElements =(Object[]) Array.newInstance(elements.getClass().getComponentType() , elements.length+1);                    //将根据补丁文件创建的Element数组和原Element数组复制到新创建的Element数组中。                    newElements[0] = myElements[0] ;                    System.arraycopy(elements , 0 , newElements ,1 , elements.length);                    //用新创建的Element数组替换PathClassLoader原有的Element数组                    elementsField.set(dexPathList , newElements);//                    ((PathClassLoader)classLoader).loadClass("com.tongfu.mytestapp.hotupdate.classloader.SampleClass");//                    MultiDex.install(this);                } catch (Exception e) {                    etConsonle.append(e.getMessage());                    e.printStackTrace();                }                break;            }            case R.id.btn_load_external_class:{                /*                 * 直接使用创建的类加载器将类加载进来，不替换原本的类加载器。                 */                try {                    ClassLoader classLoader = getClassLoader();                    Field field = classLoader.getClass().getSuperclass().getDeclaredField("pathList");                    field.setAccessible(true);                    Object dexPathList =  field.get( classLoader );                    Class dexPathListClass = dexPathList.getClass() ;                    Field elementsField = dexPathListClass.getDeclaredField("dexElements");                    elementsField.setAccessible(true);                    Object[] elements = (Object[])elementsField.get(dexPathList);                    Method makeDexElementsMethod = dexPathListClass.getDeclaredMethod("makePathElements" , List.class, File.class, List.class );                    File file = new File(getCacheDir().getAbsolutePath() + "/hotupdate/patch.apk");                    if(!file.exists()){                        file.getParentFile().mkdirs();                        file.createNewFile();                        FileUtils.writeByteArrayToFile(file ,IOUtils.toByteArray(getAssets().open("patch.apk")));                    }                    List<File> fileList = new ArrayList<>();                    fileList.add(file);                    makeDexElementsMethod.setAccessible(true);                    Object[] myElements =(Object[]) makeDexElementsMethod.invoke( dexPathList , fileList , file.getParentFile() , new ArrayList<>() );                    Class elementClass = myElements[0].getClass() ;                    Method elementLoadClassMethod = elementClass.getDeclaredMethod("findClass" , String.class , ClassLoader.class , List.class);                    Class myClass = (Class) elementLoadClassMethod.invoke(myElements[0] , "com.tongfu.mytestapp.hotupdate.classloader.SampleClass" , classLoader , new ArrayList<>());                    Method getNameMethod = myClass.getMethod("getName");                    etConsonle.append((String)getNameMethod.invoke(null));                } catch (Exception e) {                    etConsonle.append("操作失败："+e.getMessage());                    e.printStackTrace();                }                break;            }        }    }}
