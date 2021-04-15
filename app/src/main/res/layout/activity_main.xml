@@ -317,6 +317,7 @@
                 android:text="WebView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+<<<<<<< HEAD
             <Button
                 android:id="@+id/btn_render_script"
                 android:text="RenderScript"
@@ -327,6 +328,8 @@
                 android:text="Volatile Test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+=======
+>>>>>>> 117c350... web view demo
         </LinearLayout>
     </ScrollView>
 
