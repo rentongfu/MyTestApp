@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".renderscript.RenderScriptActivity"></activity>
         <activity android:name=".camera.camerax.CameraXActivity" />
         <activity android:name=".webview.WebViewActivity" />
@@ -22,6 +23,11 @@
         <activity android:name=".volatiletest.VolatileTestActivity" />
 =======
         <activity android:name=".webview.WebViewActivity"></activity>
+=======
+        <activity android:name=".renderscript.RenderScriptActivity"></activity>
+        <activity android:name=".camera.camerax.CameraXActivity" />
+        <activity android:name=".webview.WebViewActivity" />
+>>>>>>> b81af3e... camerax demo（未完成)和renderscript demo
         <activity android:name=".viewbinding.ViewBindingActivity" />
 >>>>>>> 117c350... web view demo
         <activity android:name=".video.ExoVideoPlayActivity" />

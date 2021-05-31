@@ -318,11 +318,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b81af3e... camerax demo（未完成)和renderscript demo
             <Button
                 android:id="@+id/btn_render_script"
                 android:text="RenderScript"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+<<<<<<< HEAD
             <Button
                 android:id="@+id/btn_volatile"
                 android:text="Volatile Test"
@@ -330,6 +334,8 @@
                 android:layout_height="wrap_content"/>
 =======
 >>>>>>> 117c350... web view demo
+=======
+>>>>>>> b81af3e... camerax demo（未完成)和renderscript demo
         </LinearLayout>
     </ScrollView>
 
