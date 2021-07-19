@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.tongfu.mytestapp.R;
 import com.tongfu.mytestapp.network.httpclient.HttpClientActivity;
 import com.tongfu.mytestapp.network.httpurlconnection.HttpUrlConnectionActivity;
+import com.tongfu.mytestapp.network.networkstate.NetworkStateActivity;
 import com.tongfu.mytestapp.network.okhttp.OKHttpActivity;
 import com.tongfu.mytestapp.network.retrofit.RetrofitActivity;
 import com.tongfu.mytestapp.network.volley.VolleyActivity;
@@ -25,7 +26,8 @@ public class NetworkActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_httpclient , R.id.btn_httpurlconnection , R.id.btn_volley ,R.id.btn_okhttp , R.id.btn_retrofit })
+    @OnClick({R.id.btn_httpclient , R.id.btn_httpurlconnection , R.id.btn_volley ,R.id.btn_okhttp,
+            R.id.btn_retrofit, R.id.btn_network_state_listener })
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_httpclient:{
@@ -50,6 +52,11 @@ public class NetworkActivity extends AppCompatActivity {
             }
             case R.id.btn_retrofit:{
                 Intent intent = new Intent(this , RetrofitActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_network_state_listener:{
+                Intent intent = new Intent(this , NetworkStateActivity.class);
                 startActivity(intent);
                 break;
             }
