@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +25,15 @@ public class SmoothExitActivity extends AppCompatActivity {
     @BindView(R.id.listView)
     ListView listView ;
 
+    private FrameLayout newDecorViewChild ;
+    private View originDecorViewChild ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smooth_exit);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
+        replaceDecorView();
         ButterKnife.bind(this);
         listView.setAdapter(new BaseAdapter() {
             @Override
@@ -61,6 +66,18 @@ public class SmoothExitActivity extends AppCompatActivity {
         listView.setAdapter(new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1 , list ));
     }
 
+    private void replaceDecorView(){
+        ViewGroup decorView = (ViewGroup) getWindow().getDecorView() ;
+        originDecorViewChild = decorView.getChildAt(0) ;
+        decorView.removeView(originDecorViewChild );
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT , FrameLayout.LayoutParams.MATCH_PARENT);
+        newDecorViewChild  = new FrameLayout(this );
+        newDecorViewChild.setLayoutParams(params);
+        newDecorViewChild.addView(originDecorViewChild);
+        decorView.addView(newDecorViewChild);
+        newDecorViewChild.setBackgroundColor(0x77000000);
+    }
+
     Float downX = null ;
 
     @Override
@@ -79,8 +96,11 @@ public class SmoothExitActivity extends AppCompatActivity {
                 if (downX!= null){
                     float x =  ev.getX() - downX ;
 //                    int y = (int)ev.getY() - downPoint.y;
-                    if(x > 0)
-                        getWindow().getDecorView().setTranslationX(x);
+                    if(x > 0) {
+                        originDecorViewChild.setTranslationX(x);
+
+                        newDecorViewChild.setBackgroundColor((0xFF - (int)(x / newDecorViewChild.getWidth() * 0xFF))<<24 );
+                    }
                     return true ;
                 }
                 break;
@@ -104,7 +124,7 @@ public class SmoothExitActivity extends AppCompatActivity {
 
     private void goToReset(float downX , float currentX) {
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
-        View view = getWindow().getDecorView();
+        View view = originDecorViewChild;
         float currentDeltaX = currentX-downX ;
         Animator a = ObjectAnimator.ofFloat(view , "x" , currentDeltaX , 0 );
         a.setDuration((long) (300 * Math.abs(currentDeltaX) / screenWidth));
@@ -113,7 +133,7 @@ public class SmoothExitActivity extends AppCompatActivity {
 
     private void goOnToExit(float downX , float currentX) {
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
-        View view = getWindow().getDecorView();
+        View view = originDecorViewChild;
         float currentDeltaX = currentX-downX ;
         Animator a = ObjectAnimator.ofFloat(view , "x" , currentDeltaX , screenWidth );
         a.setDuration((long) (300 - 300 * currentDeltaX / screenWidth));
