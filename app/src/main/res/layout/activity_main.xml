@@ -307,26 +307,6 @@
                 android:text="Kotlin Coroutine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn_view_binding"
-                android:text="View Binding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn_web_view"
-                android:text="WebView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn_render_script"
-                android:text="RenderScript"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn_volatile"
-                android:text="Volatile Test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
