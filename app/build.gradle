@@ -50,13 +50,14 @@ android {
     }
     buildToolsVersion '28.0.3'
 
-    buildFeatures {
-        dataBinding {
-            enabled = true
-        }
-        viewBinding {
-            enabled = true
-        }
+//    buildFeatures {
+//
+//    }
+    dataBinding {
+        enabled = true
+    }
+    viewBinding {
+        enabled = true
     }
 
     compileOptions {
